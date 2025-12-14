@@ -252,16 +252,6 @@
             box-shadow: 0 6px 15px rgba(108, 117, 125, 0.3);
         }
 
-        .btn-whatsapp {
-            background: #25D366;
-            box-shadow: 0 4px 8px rgba(37, 211, 102, 0.3);
-        }
-
-        .btn-whatsapp:hover {
-            background: #128C7E;
-            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
-        }
-
         .btn-block {
             display: block;
             width: 100%;
@@ -305,48 +295,6 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
-        .image-upload {
-            border: 2px dashed var(--border);
-            border-radius: 16px;
-            padding: 30px;
-            text-align: center;
-            margin: 15px 0;
-            cursor: pointer;
-            transition: var(--transition);
-            min-height: 140px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: var(--light);
-        }
-
-        .image-upload:hover {
-            border-color: var(--primary);
-            background: rgba(67, 97, 238, 0.03);
-        }
-
-        .image-upload i {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 12px;
-        }
-
-        .image-preview-container {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .image-preview {
-            max-width: 120px;
-            max-height: 120px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            object-fit: contain;
-            border: 3px solid white;
-        }
-
         .password-strength {
             height: 8px;
             background: var(--light-gray);
@@ -374,41 +322,6 @@
 
         .password-strength.strong .password-strength-fill {
             background: #2a9d8f;
-        }
-
-        .short-link-result {
-            background: var(--light);
-            padding: 22px;
-            border-radius: 16px;
-            margin-top: 25px;
-            border: 2px solid var(--border);
-            transition: var(--transition);
-        }
-
-        .short-link-result:hover {
-            border-color: var(--primary);
-            box-shadow: var(--shadow);
-        }
-
-        .short-link-result a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            word-break: break-all;
-            font-size: 1.1rem;
-            display: block;
-            margin-bottom: 12px;
-        }
-
-        .short-link-result a:hover {
-            text-decoration: underline;
-        }
-
-        .copy-btn {
-            margin-right: 12px;
-            padding: 8px 18px;
-            font-size: 15px;
-            min-width: auto;
         }
 
         .options-grid {
@@ -478,51 +391,6 @@
             font-size: 1.2rem;
         }
 
-        .whatsapp-section {
-            margin-top: 30px;
-            padding-top: 25px;
-            border-top: 1px solid var(--border);
-            background: rgba(37, 211, 102, 0.05);
-            border-radius: 16px;
-        }
-
-        .whatsapp-section .preview-title {
-            color: #128C7E;
-            margin-bottom: 15px;
-        }
-
-        .whatsapp-section .preview-title::after {
-            background: #25D366;
-        }
-
-        .whatsapp-instructions {
-            margin-top: 15px;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 15px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            font-size: 0.95rem;
-            color: var(--gray);
-            text-align: right;
-        }
-
-        .whatsapp-instructions ol {
-            margin-top: 8px;
-            padding-right: 20px;
-        }
-
-        .whatsapp-instructions li {
-            margin-bottom: 5px;
-        }
-
-        .whatsapp-btn-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
-            justify-content: center;
-        }
-
         .notification {
             position: fixed;
             top: 20px;
@@ -558,15 +426,12 @@
             background: var(--primary);
         }
 
-        .phone-input-group {
+        .btn-group {
             display: flex;
-            gap: 10px;
             flex-wrap: wrap;
-        }
-
-        .country-code {
-            width: 100px;
-            flex-shrink: 0;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
         }
 
         @media (max-width: 768px) {
@@ -609,19 +474,11 @@
                 font-size: 1.2rem;
             }
             
-            .whatsapp-btn-group {
+            .btn-group {
                 flex-direction: column;
             }
             
             .btn {
-                width: 100%;
-            }
-            
-            .phone-input-group {
-                flex-direction: column;
-            }
-            
-            .country-code {
                 width: 100%;
             }
         }
@@ -664,15 +521,6 @@
                 justify-content: center;
             }
             
-            .image-upload {
-                padding: 20px 15px;
-                min-height: 120px;
-            }
-            
-            .image-upload i {
-                font-size: 2.5rem;
-            }
-            
             .preview-container {
                 margin-top: 25px;
             }
@@ -699,7 +547,7 @@
     <div class="container">
         <header>
             <h1>مولدات الرموز المتقدمة</h1>
-            <p>أنشئ رموز QR، الباركود، كلمات المرور الآمنة، والروابط المختصرة بكل سهولة</p>
+            <p>أنشئ رموز QR والباركود بكل سهولة</p>
             <div class="developer-stamp">تطوير بواسطة يوسف أحمد</div>
             <div class="language-switch" id="languageSwitch">EN</div>
         </header>
@@ -707,8 +555,6 @@
         <div class="tabs">
             <button class="tab-btn active" data-tab="qr">مولد رمز QR</button>
             <button class="tab-btn" data-tab="barcode">مولد الباركود</button>
-            <button class="tab-btn" data-tab="password">مولد كلمة المرور</button>
-            <button class="tab-btn" data-tab="shortlink">مولد الرابط المختصر</button>
         </div>
 
         <!-- QR Code Generator -->
@@ -738,82 +584,18 @@
                 </div>
             </div>
             
-            <div class="form-group">
-                <label>الشعار/الصورة (اختياري)</label>
-                <div class="image-upload" id="qrImageUpload">
-                    <i class="fas fa-image"></i>
-                    <div>📁 انقر لرفع الشعار/الصورة</div>
-                    <div class="file-info">PNG، JPG، أو GIF (أقصى 1 ميجابايت)</div>
-                </div>
-                <input type="file" id="qrImageFile" accept="image/*" class="hidden">
-                <div class="image-preview-container">
-                    <img id="qrImagePreview" class="image-preview hidden" alt="معاينة الشعار">
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label for="qrLogoSize">حجم الشعار (%)</label>
-                <div style="display: flex; align-items: center; gap: 15px; margin-top: 10px;">
-                    <input type="range" id="qrLogoSize" class="form-control" min="5" max="30" value="15" style="flex: 1; margin: 0;">
-                    <span id="logoSizeValue" style="min-width: 40px; font-weight: 600; color: var(--dark);">15%</span>
-                </div>
-            </div>
-            
             <div class="preview-container">
                 <h3 class="preview-title">معاينة رمز QR</h3>
                 <div id="qrCanvas" style="min-height: 300px; display: flex; align-items: center; justify-content: center;">
                     <div style="color: var(--gray); padding: 20px;">أدخل البيانات أعلاه لإنشاء رمز QR</div>
                 </div>
-                <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 25px; justify-content: center;">
+                <div class="btn-group">
                     <button class="btn btn-secondary" id="downloadQr">
                         <i class="fas fa-download"></i> تنزيل رمز QR
                     </button>
-                    <button class="btn btn-whatsapp" id="whatsappQrData">
-                        <i class="fab fa-whatsapp"></i> إرسال النص عبر واتساب
+                    <button class="btn btn-secondary" id="copyQr">
+                        <i class="fas fa-copy"></i> نسخ الصورة
                     </button>
-                </div>
-            </div>
-
-            <!-- WhatsApp Sharing Section -->
-            <div class="whatsapp-section">
-                <h4 class="preview-title">إرسال عبر واتساب</h4>
-                <div class="form-group">
-                    <label for="whatsappNumberQr">رقم الهاتف (مع رمز الدولة)</label>
-                    <div class="phone-input-group">
-                        <select id="countryCodeQr" class="form-control country-code">
-                            <option value="20">مصر (+20)</option>
-                            <option value="966">السعودية (+966)</option>
-                            <option value="971">الإمارات (+971)</option>
-                            <option value="968">عمان (+968)</option>
-                            <option value="974">قطر (+974)</option>
-                            <option value="965">الكويت (+965)</option>
-                            <option value="962">الأردن (+962)</option>
-                            <option value="963">سوريا (+963)</option>
-                            <option value="964">العراق (+964)</option>
-                            <option value="972">فلسطين (+972)</option>
-                            <option value="1">الولايات المتحدة (+1)</option>
-                            <option value="44">المملكة المتحدة (+44)</option>
-                            <option value="93">أفغانستان (+93)</option>
-                            <option value="355">ألبانيا (+355)</option>
-                            <option value="213">الجزائر (+213)</option>
-                        </select>
-                        <input type="tel" id="whatsappNumberQr" class="form-control" placeholder="1012345678" style="flex: 1;">
-                    </div>
-                </div>
-                <div class="whatsapp-btn-group">
-                    <button class="btn btn-whatsapp" id="sendWhatsappTextQr">
-                        <i class="fab fa-whatsapp"></i> إرسال النص عبر واتساب
-                    </button>
-                    <button class="btn btn-secondary" id="copyQrImage">
-                        <i class="fas fa-copy"></i> نسخ الصورة للواتساب
-                    </button>
-                </div>
-                <div class="whatsapp-instructions">
-                    <p><strong>تعليمات:</strong></p>
-                    <ol>
-                        <li>لإرسال <strong>النص/الرابط</strong> مباشرة: أدخل رقم الهاتف ثم انقر على "إرسال النص عبر واتساب"</li>
-                        <li>لإرسال <strong>صورة رمز QR</strong>: انقر على "نسخ الصورة للواتساب" ثم افتح محادثة واتساب جديدة ولصق الصورة</li>
-                    </ol>
                 </div>
             </div>
         </div>
@@ -858,141 +640,13 @@
                 <div style="background: white; padding: 15px; border-radius: 16px; margin-bottom: 25px; box-shadow: var(--shadow);">
                     <svg id="barcodeCanvas" style="width: 100%; height: auto; min-height: 150px;"></svg>
                 </div>
-                <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 15px; justify-content: center;">
+                <div class="btn-group">
                     <button class="btn btn-secondary" id="downloadBarcode">
                         <i class="fas fa-download"></i> تنزيل الباركود
                     </button>
-                    <button class="btn btn-whatsapp" id="whatsappBarcodeData">
-                        <i class="fab fa-whatsapp"></i> إرسال النص عبر واتساب
+                    <button class="btn btn-secondary" id="copyBarcode">
+                        <i class="fas fa-copy"></i> نسخ الصورة
                     </button>
-                </div>
-            </div>
-
-            <!-- WhatsApp Sharing Section -->
-            <div class="whatsapp-section">
-                <h4 class="preview-title">إرسال عبر واتساب</h4>
-                <div class="form-group">
-                    <label for="whatsappNumberBarcode">رقم الهاتف (مع رمز الدولة)</label>
-                    <div class="phone-input-group">
-                        <select id="countryCodeBarcode" class="form-control country-code">
-                            <option value="20">مصر (+20)</option>
-                            <option value="966">السعودية (+966)</option>
-                            <option value="971">الإمارات (+971)</option>
-                            <option value="968">عمان (+968)</option>
-                            <option value="974">قطر (+974)</option>
-                            <option value="965">الكويت (+965)</option>
-                            <option value="962">الأردن (+962)</option>
-                            <option value="963">سوريا (+963)</option>
-                            <option value="964">العراق (+964)</option>
-                            <option value="972">فلسطين (+972)</option>
-                            <option value="1">الولايات المتحدة (+1)</option>
-                            <option value="44">المملكة المتحدة (+44)</option>
-                            <option value="93">أفغانستان (+93)</option>
-                            <option value="355">ألبانيا (+355)</option>
-                            <option value="213">الجزائر (+213)</option>
-                        </select>
-                        <input type="tel" id="whatsappNumberBarcode" class="form-control" placeholder="1012345678" style="flex: 1;">
-                    </div>
-                </div>
-                <div class="whatsapp-btn-group">
-                    <button class="btn btn-whatsapp" id="sendWhatsappTextBarcode">
-                        <i class="fab fa-whatsapp"></i> إرسال النص عبر واتساب
-                    </button>
-                    <button class="btn btn-secondary" id="copyBarcodeImage">
-                        <i class="fas fa-copy"></i> نسخ الصورة للواتساب
-                    </button>
-                </div>
-                <div class="whatsapp-instructions">
-                    <p><strong>تعليمات:</strong></p>
-                    <ol>
-                        <li>لإرسال <strong>النص/البيانات</strong> مباشرة: أدخل رقم الهاتف ثم انقر على "إرسال النص عبر واتساب"</li>
-                        <li>لإرسال <strong>صورة الباركود</strong>: انقر على "نسخ الصورة للواتساب" ثم افتح محادثة واتساب جديدة ولصق الصورة</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-
-        <!-- Password Generator -->
-        <div id="password" class="tab-content">
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="passwordLength">طول كلمة المرور</label>
-                    <input type="number" id="passwordLength" class="form-control" min="4" max="64" value="16">
-                </div>
-                <div class="form-group">
-                    <label for="passwordCount">عدد كلمات المرور</label>
-                    <input type="number" id="passwordCount" class="form-control" min="1" max="10" value="1">
-                </div>
-            </div>
-            
-            <div class="options-grid">
-                <div class="option-card">
-                    <h4><i class="fas fa-font"></i> أنواع الأحرف</h4>
-                    <label><input type="checkbox" id="includeUppercase" checked> أحرف كبيرة (A-Z)</label>
-                    <label><input type="checkbox" id="includeLowercase" checked> أحرف صغيرة (a-z)</label>
-                    <label><input type="checkbox" id="includeNumbers" checked> أرقام (0-9)</label>
-                    <label><input type="checkbox" id="includeSymbols" checked> رموز (!@#$%&*)</label>
-                </div>
-                
-                <div class="option-card">
-                    <h4><i class="fas fa-shield-alt"></i> خيارات متقدمة</h4>
-                    <label><input type="checkbox" id="excludeSimilar" checked> استبعاد الأحرف المتشابهة (iIl1L0oO)</label>
-                    <label><input type="checkbox" id="excludeAmbiguous"> استبعاد الرموز الغامضة ({}[]()/\\<>\'`~;)</label>
-                    <label><input type="checkbox" id="requireEach" checked> طلب كل نوع من الأحرف</label>
-                </div>
-            </div>
-            
-            <button class="btn btn-block" id="generatePassword">
-                <i class="fas fa-magic"></i> إنشاء كلمة مرور
-            </button>
-            
-            <div class="preview-container" style="margin-top: 30px;">
-                <h3 class="preview-title">كلمات المرور المولدة</h3>
-                <div id="passwordResults" style="text-align: right; margin-top: 20px; min-height: 100px;"></div>
-                <div class="password-strength" id="passwordStrength">
-                    <div class="password-strength-fill" id="strengthFill"></div>
-                </div>
-                <div id="strengthText" style="text-align: center; margin-top: 10px; font-weight: 600; color: var(--gray);"></div>
-            </div>
-        </div>
-
-        <!-- Short Link Generator -->
-        <div id="shortlink" class="tab-content">
-            <div class="form-group">
-                <label for="longUrl">الرابط الطويل للإختصار</label>
-                <input type="url" id="longUrl" class="form-control" placeholder="https://example.com/رابط/طويل/جدًا/يحتاج/إلى/اختصار" value="https://example.com">
-            </div>
-            
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="customAlias">الاسم المخصص (اختياري)</label>
-                    <input type="text" id="customAlias" class="form-control" placeholder="اسم-الرابط">
-                </div>
-                <div class="form-group">
-                    <label for="expiryDate">تاريخ الانتهاء (اختياري)</label>
-                    <input type="date" id="expiryDate" class="form-control">
-                </div>
-            </div>
-            
-            <button class="btn btn-block" id="generateShortLink">
-                <i class="fas fa-link"></i> إنشاء رابط مختصر
-            </button>
-            
-            <div class="preview-container">
-                <h3 class="preview-title">نتيجة الرابط المختصر</h3>
-                <div id="shortLinkResult" class="short-link-result hidden">
-                    <a id="shortLinkUrl" href="#" target="_blank"></a>
-                    <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px;">
-                        <button class="btn copy-btn" id="copyShortLink">
-                            <i class="fas fa-copy"></i> نسخ
-                        </button>
-                        <button class="btn btn-secondary" id="openShortLink">
-                            <i class="fas fa-external-link-alt"></i> فتح
-                        </button>
-                        <button class="btn btn-whatsapp" id="whatsappShortLink">
-                            <i class="fab fa-whatsapp"></i> إرسال عبر واتساب
-                        </button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1005,13 +659,11 @@
         const translations = {
             en: {
                 title: 'Advanced Code Generators',
-                subtitle: 'Generate QR Codes, Barcodes, Secure Passwords, and Short Links with ease',
+                subtitle: 'Generate QR Codes and Barcodes easily',
                 developer: 'Developed By Youssef Ahmed',
                 tabs: {
                     qr: 'QR Code Generator',
-                    barcode: 'Barcode Generator', 
-                    password: 'Password Generator',
-                    shortlink: 'Short Link Generator'
+                    barcode: 'Barcode Generator'
                 },
                 qr: {
                     title: 'QR Code Generator',
@@ -1020,21 +672,10 @@
                     sizeLabel: 'Size (px)',
                     colorLabel: 'Foreground Color',
                     bgColorLabel: 'Background Color',
-                    logoLabel: 'Logo/Image (Optional)',
-                    logoUpload: '📁 Click to upload logo/image',
-                    logoFormats: 'PNG, JPG, or GIF (Max 1MB)',
-                    logoSizeLabel: 'Logo Size (%)',
                     previewTitle: 'QR Code Preview',
                     downloadBtn: 'Download QR Code',
-                    whatsappDataBtn: 'Send Data via WhatsApp',
-                    autoUpdate: '⚡ All changes automatically update the QR code in real-time!',
-                    whatsappSection: 'Share via WhatsApp',
-                    whatsappNumberLabel: 'Phone Number (with country code)',
-                    sendTextBtn: 'Send Text via WhatsApp',
-                    copyImageBtn: 'Copy Image to Clipboard',
-                    instructionsTitle: 'Instructions:',
-                    instruction1: 'To send the text/data: Enter phone number and click "Send Text via WhatsApp"',
-                    instruction2: 'To send the QR code image: Click "Copy Image to Clipboard" then open WhatsApp and paste'
+                    copyBtn: 'Copy Image',
+                    autoUpdate: '⚡ All changes automatically update the QR code in real-time!'
                 },
                 barcode: {
                     title: 'Barcode Generator',
@@ -1045,67 +686,24 @@
                     widthLabel: 'Width (px)',
                     previewTitle: 'Barcode Preview',
                     downloadBtn: 'Download Barcode',
-                    whatsappDataBtn: 'Send Data via WhatsApp',
-                    autoUpdate: '⚡ All changes automatically update the barcode in real-time!',
-                    whatsappSection: 'Share via WhatsApp',
-                    whatsappNumberLabel: 'Phone Number (with country code)',
-                    sendTextBtn: 'Send Text via WhatsApp',
-                    copyImageBtn: 'Copy Image to Clipboard',
-                    instructionsTitle: 'Instructions:',
-                    instruction1: 'To send the text/ Enter phone number and click "Send Text via WhatsApp"',
-                    instruction2: 'To send the barcode image: Click "Copy Image to Clipboard" then open WhatsApp and paste'
-                },
-                password: {
-                    title: 'Password Generator',
-                    lengthLabel: 'Password Length',
-                    countLabel: 'Number of Passwords',
-                    charTypes: 'Character Types',
-                    uppercase: 'Uppercase (A-Z)',
-                    lowercase: 'Lowercase (a-z)',
-                    numbers: 'Numbers (0-9)',
-                    symbols: 'Symbols (!@#$%&*)',
-                    advanced: 'Advanced Options',
-                    excludeSimilar: 'Exclude Similar (iIl1L0oO)',
-                    excludeAmbiguous: 'Exclude Ambiguous ({}[]()/\\<>\'`~;:,")',
-                    requireEach: 'Require Each Character Type',
-                    generateBtn: 'Generate Password',
-                    previewTitle: 'Generated Passwords'
-                },
-                shortlink: {
-                    title: 'Short Link Generator',
-                    urlLabel: 'Long URL to Shorten',
-                    urlPlaceholder: 'https://example.com/very/long/url/that/needs/shortening',
-                    aliasLabel: 'Custom Alias (Optional)',
-                    expiryLabel: 'Expiry Date (Optional)',
-                    generateBtn: 'Generate Short Link',
-                    previewTitle: 'Short Link Result',
-                    openBtn: 'Open',
-                    whatsappBtn: 'Send via WhatsApp'
+                    copyBtn: 'Copy Image',
+                    autoUpdate: '⚡ All changes automatically update the barcode in real-time!'
                 },
                 notifications: {
-                    copied: 'Copied to clipboard!',
-                    passwordGenerated: 'Password generated successfully!',
-                    shortLinkGenerated: 'Short link generated successfully!',
+                    copied: 'Image copied to clipboard!',
                     error: 'An error occurred. Please try again.',
                     qrDownloaded: 'QR code downloaded successfully!',
                     barcodeDownloaded: 'Barcode downloaded successfully!',
-                    invalidUrl: 'Please enter a valid URL',
-                    invalidPasswordLength: 'Password length must be between 4 and 64 characters',
-                    invalidPasswordCount: 'Number of passwords must be between 1 and 10',
-                    whatsappOpened: 'WhatsApp opened successfully!',
-                    imageCopied: 'Image copied to clipboard! Open WhatsApp and paste the image.',
-                    invalidPhoneNumber: 'Please enter a valid phone number'
+                    imageCopied: 'Image copied to clipboard! You can now paste it anywhere.'
                 }
             },
             ar: {
                 title: 'مولدات الرموز المتقدمة',
-                subtitle: 'أنشئ رموز QR، الباركود، كلمات المرور الآمنة، والروابط المختصرة بكل سهولة',
+                subtitle: 'أنشئ رموز QR والباركود بكل سهولة',
                 developer: 'تطوير بواسطة يوسف أحمد',
                 tabs: {
                     qr: 'مولد رمز QR',
-                    barcode: 'مولد الباركود',
-                    password: 'مولد كلمة المرور',
-                    shortlink: 'مولد الرابط المختصر'
+                    barcode: 'مولد الباركود'
                 },
                 qr: {
                     title: 'مولد رمز QR',
@@ -1114,21 +712,10 @@
                     sizeLabel: 'الحجم (بكسل)',
                     colorLabel: 'لون المقدمة',
                     bgColorLabel: 'لون الخلفية',
-                    logoLabel: 'الشعار/الصورة (اختياري)',
-                    logoUpload: '📁 انقر لرفع الشعار/الصورة',
-                    logoFormats: 'PNG، JPG، أو GIF (أقصى 1 ميجابايت)',
-                    logoSizeLabel: 'حجم الشعار (%)',
                     previewTitle: 'معاينة رمز QR',
                     downloadBtn: 'تنزيل رمز QR',
-                    whatsappDataBtn: 'إرسال النص عبر واتساب',
-                    autoUpdate: '⚡ جميع التغييرات تقوم بتحديث رمز QR تلقائياً!',
-                    whatsappSection: 'إرسال عبر واتساب',
-                    whatsappNumberLabel: 'رقم الهاتف (مع رمز الدولة)',
-                    sendTextBtn: 'إرسال النص عبر واتساب',
-                    copyImageBtn: 'نسخ الصورة للواتساب',
-                    instructionsTitle: 'تعليمات:',
-                    instruction1: 'لإرسال النص/الرابط مباشرة: أدخل رقم الهاتف ثم انقر على "إرسال النص عبر واتساب"',
-                    instruction2: 'لإرسال صورة رمز QR: انقر على "نسخ الصورة للواتساب" ثم افتح محادثة واتساب جديدة ولصق الصورة'
+                    copyBtn: 'نسخ الصورة',
+                    autoUpdate: '⚡ جميع التغييرات تقوم بتحديث رمز QR تلقائياً!'
                 },
                 barcode: {
                     title: 'مولد الباركود',
@@ -1139,62 +726,20 @@
                     widthLabel: 'العرض (بكسل)',
                     previewTitle: 'معاينة الباركود',
                     downloadBtn: 'تنزيل الباركود',
-                    whatsappDataBtn: 'إرسال النص عبر واتساب',
-                    autoUpdate: '⚡ جميع التغييرات تقوم بتحديث الباركود تلقائياً!',
-                    whatsappSection: 'إرسال عبر واتساب',
-                    whatsappNumberLabel: 'رقم الهاتف (مع رمز الدولة)',
-                    sendTextBtn: 'إرسال النص عبر واتساب',
-                    copyImageBtn: 'نسخ الصورة للواتساب',
-                    instructionsTitle: 'تعليمات:',
-                    instruction1: 'لإرسال النص/البيانات مباشرة: أدخل رقم الهاتف ثم انقر على "إرسال النص عبر واتساب"',
-                    instruction2: 'لإرسال صورة الباركود: انقر على "نسخ الصورة للواتساب" ثم افتح محادثة واتساب جديدة ولصق الصورة'
-                },
-                password: {
-                    title: 'مولد كلمة المرور',
-                    lengthLabel: 'طول كلمة المرور',
-                    countLabel: 'عدد كلمات المرور',
-                    charTypes: 'أنواع الأحرف',
-                    uppercase: 'أحرف كبيرة (A-Z)',
-                    lowercase: 'أحرف صغيرة (a-z)',
-                    numbers: 'أرقام (0-9)',
-                    symbols: 'رموز (!@#$%&*)',
-                    advanced: 'خيارات متقدمة',
-                    excludeSimilar: 'استبعاد الأحرف المتشابهة (iIl1L0oO)',
-                    excludeAmbiguous: 'استبعاد الرموز الغامضة ({}[]()/\\<>\'`~;:,")',
-                    requireEach: 'طلب كل نوع من الأحرف',
-                    generateBtn: 'إنشاء كلمة مرور',
-                    previewTitle: 'كلمات المرور المولدة'
-                },
-                shortlink: {
-                    title: 'مولد الرابط المختصر',
-                    urlLabel: 'الرابط الطويل للإختصار',
-                    urlPlaceholder: 'https://example.com/رابط/طويل/جدًا/يحتاج/إلى/اختصار',
-                    aliasLabel: 'الاسم المخصص (اختياري)',
-                    expiryLabel: 'تاريخ الانتهاء (اختياري)',
-                    generateBtn: 'إنشاء رابط مختصر',
-                    previewTitle: 'نتيجة الرابط المختصر',
-                    openBtn: 'فتح',
-                    whatsappBtn: 'إرسال عبر واتساب'
+                    copyBtn: 'نسخ الصورة',
+                    autoUpdate: '⚡ جميع التغييرات تقوم بتحديث الباركود تلقائياً!'
                 },
                 notifications: {
-                    copied: 'تم النسخ إلى الحافظة!',
-                    passwordGenerated: 'تم إنشاء كلمة المرور بنجاح!',
-                    shortLinkGenerated: 'تم إنشاء الرابط المختصر بنجاح!',
+                    copied: 'تم نسخ الصورة إلى الحافظة!',
                     error: 'حدث خطأ. الرجاء المحاولة مرة أخرى.',
                     qrDownloaded: 'تم تنزيل رمز QR بنجاح!',
                     barcodeDownloaded: 'تم تنزيل الباركود بنجاح!',
-                    invalidUrl: 'الرجاء إدخال رابط صالح',
-                    invalidPasswordLength: 'يجب أن يكون طول كلمة المرور بين 4 و 64 حرفاً',
-                    invalidPasswordCount: 'يجب أن يكون عدد كلمات المرور بين 1 و 10',
-                    whatsappOpened: 'تم فتح واتساب بنجاح!',
-                    imageCopied: 'تم نسخ الصورة إلى الحافظة! افتح واتساب ولصق الصورة.',
-                    invalidPhoneNumber: 'الرجاء إدخال رقم هاتف صالح'
+                    imageCopied: 'تم نسخ الصورة إلى الحافظة! يمكنك الآن لصقها في أي مكان.'
                 }
             }
         };
 
         let currentLang = 'ar';
-        let qrImage = null;
         const notification = document.getElementById('notification');
 
         // Helper function to show notifications
@@ -1250,8 +795,6 @@
             // Update tabs
             document.querySelectorAll('.tab-btn[data-tab="qr"]')[0].textContent = t.tabs.qr;
             document.querySelectorAll('.tab-btn[data-tab="barcode"]')[0].textContent = t.tabs.barcode;
-            document.querySelectorAll('.tab-btn[data-tab="password"]')[0].textContent = t.tabs.password;
-            document.querySelectorAll('.tab-btn[data-tab="shortlink"]')[0].textContent = t.tabs.shortlink;
             
             // Update QR tab
             if (document.getElementById('qr').classList.contains('active')) {
@@ -1261,22 +804,9 @@
                 document.querySelector('label[for="qrSize"]').textContent = t.qr.sizeLabel;
                 document.querySelector('label[for="qrColor"]').textContent = t.qr.colorLabel;
                 document.querySelector('label[for="qrBgColor"]').textContent = t.qr.bgColorLabel;
-                document.querySelector('#qr .form-group:nth-child(4) label').textContent = t.qr.logoLabel;
-                document.querySelector('#qrImageUpload div:first-child').textContent = t.qr.logoUpload;
-                document.querySelector('.file-info').textContent = t.qr.logoFormats;
-                document.querySelector('label[for="qrLogoSize"]').textContent = t.qr.logoSizeLabel;
                 document.querySelector('#qr .preview-title').textContent = t.qr.previewTitle;
                 document.getElementById('downloadQr').innerHTML = `<i class="fas fa-download"></i> ${t.qr.downloadBtn}`;
-                document.getElementById('whatsappQrData').innerHTML = `<i class="fab fa-whatsapp"></i> ${t.qr.whatsappDataBtn}`;
-                
-                // Update WhatsApp section
-                document.querySelector('.whatsapp-section .preview-title').textContent = t.qr.whatsappSection;
-                document.querySelector('label[for="whatsappNumberQr"]').textContent = t.qr.whatsappNumberLabel;
-                document.getElementById('sendWhatsappTextQr').innerHTML = `<i class="fab fa-whatsapp"></i> ${t.qr.sendTextBtn}`;
-                document.getElementById('copyQrImage').innerHTML = `<i class="fas fa-copy"></i> ${t.qr.copyImageBtn}`;
-                document.querySelector('.whatsapp-instructions p strong').textContent = t.qr.instructionsTitle;
-                document.querySelectorAll('.whatsapp-instructions ol li')[0].textContent = t.qr.instruction1;
-                document.querySelectorAll('.whatsapp-instructions ol li')[1].textContent = t.qr.instruction2;
+                document.getElementById('copyQr').innerHTML = `<i class="fas fa-copy"></i> ${t.qr.copyBtn}`;
             }
             
             // Update Barcode tab
@@ -1289,63 +819,16 @@
                 document.querySelector('label[for="barcodeWidth"]').textContent = t.barcode.widthLabel;
                 document.querySelector('#barcode .preview-title').textContent = t.barcode.previewTitle;
                 document.getElementById('downloadBarcode').innerHTML = `<i class="fas fa-download"></i> ${t.barcode.downloadBtn}`;
-                document.getElementById('whatsappBarcodeData').innerHTML = `<i class="fab fa-whatsapp"></i> ${t.barcode.whatsappDataBtn}`;
-                
-                // Update WhatsApp section
-                document.querySelector('#barcode .whatsapp-section .preview-title').textContent = t.barcode.whatsappSection;
-                document.querySelector('label[for="whatsappNumberBarcode"]').textContent = t.barcode.whatsappNumberLabel;
-                document.getElementById('sendWhatsappTextBarcode').innerHTML = `<i class="fab fa-whatsapp"></i> ${t.barcode.sendTextBtn}`;
-                document.getElementById('copyBarcodeImage').innerHTML = `<i class="fas fa-copy"></i> ${t.barcode.copyImageBtn}`;
-                document.querySelector('#barcode .whatsapp-instructions p strong').textContent = t.barcode.instructionsTitle;
-                document.querySelectorAll('#barcode .whatsapp-instructions ol li')[0].textContent = t.barcode.instruction1;
-                document.querySelectorAll('#barcode .whatsapp-instructions ol li')[1].textContent = t.barcode.instruction2;
-            }
-            
-            // Update Password tab
-            if (document.getElementById('password').classList.contains('active')) {
-                document.querySelector('label[for="passwordLength"]').textContent = t.password.lengthLabel;
-                document.querySelector('label[for="passwordCount"]').textContent = t.password.countLabel;
-                document.querySelector('.option-card:first-child h4 span').textContent = t.password.charTypes;
-                document.querySelector('.option-card:first-child h4 i').className = 'fas fa-font';
-                document.querySelectorAll('.option-card:first-child label')[0].innerHTML = `<input type="checkbox" id="includeUppercase" ${document.getElementById('includeUppercase').checked ? 'checked' : ''}> ${t.password.uppercase}`;
-                document.querySelectorAll('.option-card:first-child label')[1].innerHTML = `<input type="checkbox" id="includeLowercase" ${document.getElementById('includeLowercase').checked ? 'checked' : ''}> ${t.password.lowercase}`;
-                document.querySelectorAll('.option-card:first-child label')[2].innerHTML = `<input type="checkbox" id="includeNumbers" ${document.getElementById('includeNumbers').checked ? 'checked' : ''}> ${t.password.numbers}`;
-                document.querySelectorAll('.option-card:first-child label')[3].innerHTML = `<input type="checkbox" id="includeSymbols" ${document.getElementById('includeSymbols').checked ? 'checked' : ''}> ${t.password.symbols}`;
-                document.querySelector('.option-card:nth-child(2) h4 span').textContent = t.password.advanced;
-                document.querySelector('.option-card:nth-child(2) h4 i').className = 'fas fa-shield-alt';
-                document.querySelectorAll('.option-card:nth-child(2) label')[0].innerHTML = `<input type="checkbox" id="excludeSimilar" ${document.getElementById('excludeSimilar').checked ? 'checked' : ''}> ${t.password.excludeSimilar}`;
-                document.querySelectorAll('.option-card:nth-child(2) label')[1].innerHTML = `<input type="checkbox" id="excludeAmbiguous" ${document.getElementById('excludeAmbiguous').checked ? 'checked' : ''}> ${t.password.excludeAmbiguous}`;
-                document.querySelectorAll('.option-card:nth-child(2) label')[2].innerHTML = `<input type="checkbox" id="requireEach" ${document.getElementById('requireEach').checked ? 'checked' : ''}> ${t.password.requireEach}`;
-                document.getElementById('generatePassword').innerHTML = `<i class="fas fa-magic"></i> ${t.password.generateBtn}`;
-                document.querySelector('#password .preview-title').textContent = t.password.previewTitle;
-            }
-            
-            // Update Short Link tab
-            if (document.getElementById('shortlink').classList.contains('active')) {
-                document.querySelector('label[for="longUrl"]').textContent = t.shortlink.urlLabel;
-                document.querySelector('#longUrl').placeholder = t.shortlink.urlPlaceholder;
-                document.querySelector('label[for="customAlias"]').textContent = t.shortlink.aliasLabel;
-                document.querySelector('label[for="expiryDate"]').textContent = t.shortlink.expiryLabel;
-                document.getElementById('generateShortLink').innerHTML = `<i class="fas fa-link"></i> ${t.shortlink.generateBtn}`;
-                document.querySelector('#shortlink .preview-title').textContent = t.shortlink.previewTitle;
-                document.getElementById('openShortLink').innerHTML = `<i class="fas fa-external-link-alt"></i> ${t.shortlink.openBtn || 'Open'}`;
-                document.getElementById('whatsappShortLink').innerHTML = `<i class="fab fa-whatsapp"></i> ${t.shortlink.whatsappBtn || 'Send via WhatsApp'}`;
+                document.getElementById('copyBarcode').innerHTML = `<i class="fas fa-copy"></i> ${t.barcode.copyBtn}`;
             }
         }
 
         // QR Code Generator with real-time updates
-        const qrImageUpload = document.getElementById('qrImageUpload');
-        const qrImageFile = document.getElementById('qrImageFile');
-        const qrImagePreview = document.getElementById('qrImagePreview');
-        const logoSizeSlider = document.getElementById('qrLogoSize');
-        const logoSizeValue = document.getElementById('logoSizeValue');
-
         function updateQrCode() {
             const qrData = document.getElementById('qrData').value;
             const size = document.getElementById('qrSize').value;
             const color = document.getElementById('qrColor').value;
             const bgColor = document.getElementById('qrBgColor').value;
-            const logoSize = parseInt(logoSizeSlider.value) / 100;
 
             const qrContainer = document.getElementById('qrCanvas');
             
@@ -1370,29 +853,6 @@
                     colorLight: bgColor,
                     correctLevel: QRCode.CorrectLevel.H
                 });
-
-                if (qrImage) {
-                    const ctx = qrCanvas.getContext('2d');
-                    const logoWidth = size * logoSize;
-                    const logoHeight = logoWidth * (qrImage.naturalHeight / qrImage.naturalWidth);
-                    const logoX = (size - logoWidth) / 2;
-                    const logoY = (size - logoHeight) / 2;
-
-                    // Draw a white circle behind the logo for better visibility
-                    ctx.beginPath();
-                    ctx.arc(size/2, size/2, logoWidth/2 + 10, 0, Math.PI * 2);
-                    ctx.fillStyle = bgColor;
-                    ctx.fill();
-                    
-                    // Draw border around logo
-                    ctx.beginPath();
-                    ctx.arc(size/2, size/2, logoWidth/2 + 5, 0, Math.PI * 2);
-                    ctx.strokeStyle = color;
-                    ctx.lineWidth = 2;
-                    ctx.stroke();
-                    
-                    ctx.drawImage(qrImage, logoX, logoY, logoWidth, logoHeight);
-                }
             } catch (error) {
                 qrContainer.innerHTML = `<div style="color: var(--danger); padding: 40px; text-align: center; line-height: 1.7;">خطأ في إنشاء رمز QR: ${error.message}</div>`;
                 console.error('QR Code generation error:', error);
@@ -1403,43 +863,6 @@
         document.getElementById('qrSize').addEventListener('input', updateQrCode);
         document.getElementById('qrColor').addEventListener('input', updateQrCode);
         document.getElementById('qrBgColor').addEventListener('input', updateQrCode);
-        logoSizeSlider.addEventListener('input', () => {
-            logoSizeValue.textContent = logoSizeSlider.value + '%';
-            updateQrCode();
-        });
-
-        qrImageUpload.addEventListener('click', () => {
-            qrImageFile.click();
-        });
-
-        qrImageFile.addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            if (!file) return;
-            
-            if (file.size > 1024 * 1024) { // 1MB limit
-                showNotification(translations[currentLang].notifications.error + ': ' + 'تم تجاوز الحد الأقصى لحجم الملف (1 ميجابايت)', 'error');
-                return;
-            }
-            
-            if (file && file.type.match('image.*')) {
-                const reader = new FileReader();
-                reader.onload = (event) => {
-                    qrImage = new Image();
-                    qrImage.onload = () => {
-                        qrImagePreview.src = event.target.result;
-                        qrImagePreview.classList.remove('hidden');
-                        updateQrCode();
-                    };
-                    qrImage.onerror = () => {
-                        showNotification(translations[currentLang].notifications.error + ': ' + 'فشل في تحميل الصورة', 'error');
-                    };
-                    qrImage.src = event.target.result;
-                };
-                reader.readAsDataURL(file);
-            } else {
-                showNotification(translations[currentLang].notifications.error + ': ' + 'الرجاء اختيار ملف صورة صالح', 'error');
-            }
-        });
 
         document.getElementById('downloadQr').addEventListener('click', () => {
             const qrCanvas = document.getElementById('qrCanvas').querySelector('canvas');
@@ -1457,35 +880,7 @@
             showNotification(translations[currentLang].notifications.qrDownloaded, 'success');
         });
 
-        // WhatsApp QR Code Data
-        document.getElementById('whatsappQrData').addEventListener('click', () => {
-            const qrData = document.getElementById('qrData').value.trim();
-            if (!qrData) {
-                showNotification(translations[currentLang].notifications.error + ': ' + 'أدخل البيانات أولاً', 'error');
-                return;
-            }
-            
-            const countryCode = document.getElementById('countryCodeQr').value;
-            const phoneNumber = document.getElementById('whatsappNumberQr').value.trim();
-            const fullNumber = countryCode + phoneNumber;
-            
-            if (!phoneNumber || !/^\d+$/.test(phoneNumber)) {
-                showNotification(translations[currentLang].notifications.invalidPhoneNumber, 'error');
-                return;
-            }
-            
-            // Create WhatsApp URL with the QR code data
-            const whatsappUrl = `https://wa.me/${fullNumber}?text=${encodeURIComponent(qrData)}`;
-            window.open(whatsappUrl, '_blank');
-            showNotification(translations[currentLang].notifications.whatsappOpened, 'success');
-        });
-
-        document.getElementById('sendWhatsappTextQr').addEventListener('click', () => {
-            document.getElementById('whatsappQrData').click();
-        });
-
-        // Copy QR Image to Clipboard
-        document.getElementById('copyQrImage').addEventListener('click', async () => {
+        document.getElementById('copyQr').addEventListener('click', async () => {
             const qrCanvas = document.getElementById('qrCanvas').querySelector('canvas');
             if (!qrCanvas) {
                 showNotification(translations[currentLang].notifications.error + ': ' + 'لم يتم العثور على رمز QR', 'error');
@@ -1506,16 +901,7 @@
                 showNotification(translations[currentLang].notifications.imageCopied, 'success');
             } catch (err) {
                 console.error('Error copying image to clipboard:', err);
-                
-                // Fallback: Create a temporary link for downloading
-                const link = document.createElement('a');
-                link.download = 'qr-code.png';
-                link.href = qrCanvas.toDataURL('image/png');
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                
-                showNotification(translations[currentLang].notifications.error + ': ' + 'تم تنزيل الصورة بدلاً من النسخ. افتح واتساب ولصق الصورة يدوياً', 'warning');
+                showNotification(translations[currentLang].notifications.error + ': ' + 'فشل في نسخ الصورة', 'error');
             }
         });
 
@@ -1605,35 +991,7 @@
             img.src = url;
         });
 
-        // WhatsApp Barcode Data
-        document.getElementById('whatsappBarcodeData').addEventListener('click', () => {
-            const barcodeData = document.getElementById('barcodeData').value.trim();
-            if (!barcodeData) {
-                showNotification(translations[currentLang].notifications.error + ': ' + 'أدخل البيانات أولاً', 'error');
-                return;
-            }
-            
-            const countryCode = document.getElementById('countryCodeBarcode').value;
-            const phoneNumber = document.getElementById('whatsappNumberBarcode').value.trim();
-            const fullNumber = countryCode + phoneNumber;
-            
-            if (!phoneNumber || !/^\d+$/.test(phoneNumber)) {
-                showNotification(translations[currentLang].notifications.invalidPhoneNumber, 'error');
-                return;
-            }
-            
-            // Create WhatsApp URL with the barcode data
-            const whatsappUrl = `https://wa.me/${fullNumber}?text=${encodeURIComponent(barcodeData)}`;
-            window.open(whatsappUrl, '_blank');
-            showNotification(translations[currentLang].notifications.whatsappOpened, 'success');
-        });
-
-        document.getElementById('sendWhatsappTextBarcode').addEventListener('click', () => {
-            document.getElementById('whatsappBarcodeData').click();
-        });
-
-        // Copy Barcode Image to Clipboard
-        document.getElementById('copyBarcodeImage').addEventListener('click', async () => {
+        document.getElementById('copyBarcode').addEventListener('click', async () => {
             const svg = document.getElementById('barcodeCanvas');
             if (!svg) {
                 showNotification(translations[currentLang].notifications.error + ': ' + 'لم يتم العثور على الباركود', 'error');
@@ -1683,249 +1041,8 @@
                 img.src = url;
             } catch (err) {
                 console.error('Error copying barcode image to clipboard:', err);
-                showNotification(translations[currentLang].notifications.error + ': ' + 'فشل في نسخ الصورة. حاول التنزيل بدلاً من ذلك', 'error');
+                showNotification(translations[currentLang].notifications.error + ': ' + 'فشل في نسخ الصورة', 'error');
             }
-        });
-
-        // Password Generator
-        function generatePassword(length, options) {
-            const { includeUppercase, includeLowercase, includeNumbers, includeSymbols, 
-                   excludeSimilar, excludeAmbiguous, requireEach } = options;
-            
-            let charset = '';
-            const charSets = [];
-            let requiredChars = '';
-            
-            // Uppercase letters
-            if (includeUppercase) {
-                let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-                if (excludeSimilar) chars = chars.replace(/[ILO]/g, '');
-                charset += chars;
-                charSets.push(chars);
-                if (requireEach) requiredChars += chars.charAt(Math.floor(Math.random() * chars.length));
-            }
-            
-            // Lowercase letters
-            if (includeLowercase) {
-                let chars = 'abcdefghijklmnopqrstuvwxyz';
-                if (excludeSimilar) chars = chars.replace(/[il1o0]/g, '');
-                charset += chars;
-                charSets.push(chars);
-                if (requireEach) requiredChars += chars.charAt(Math.floor(Math.random() * chars.length));
-            }
-            
-            // Numbers
-            if (includeNumbers) {
-                let chars = '0123456789';
-                if (excludeSimilar) chars = chars.replace(/[01]/g, '');
-                charset += chars;
-                charSets.push(chars);
-                if (requireEach) requiredChars += chars.charAt(Math.floor(Math.random() * chars.length));
-            }
-            
-            // Symbols
-            if (includeSymbols) {
-                let chars = '!@#$%^&*()_+-=[]{}|;:,.<>?';
-                if (excludeAmbiguous) chars = chars.replace(/[{}[\]()\\<>'"`~;:,]/g, '');
-                charset += chars;
-                charSets.push(chars);
-                if (requireEach) requiredChars += chars.charAt(Math.floor(Math.random() * chars.length));
-            }
-            
-            if (charset.length === 0) {
-                return 'Error: No character types selected';
-            }
-            
-            // If requireEach is selected, we need to make sure we have enough length
-            if (requireEach && length < requiredChars.length) {
-                return 'Error: Password length too short for required character types';
-            }
-            
-            let password = requiredChars;
-            
-            // Fill the rest of the password
-            for (let i = password.length; i < length; i++) {
-                password += charset.charAt(Math.floor(Math.random() * charset.length));
-            }
-            
-            // Shuffle the password to avoid predictable patterns
-            password = password.split('').sort(() => Math.random() - 0.5).join('');
-            
-            return password;
-        }
-
-        function calculatePasswordStrength(password) {
-            let score = 0;
-            
-            // Length score
-            if (password.length >= 8) score += 1;
-            if (password.length >= 12) score += 1;
-            if (password.length >= 16) score += 1;
-            
-            // Character variety score
-            if (/[a-z]/.test(password)) score += 1;
-            if (/[A-Z]/.test(password)) score += 1;
-            if (/[0-9]/.test(password)) score += 1;
-            if (/[^a-zA-Z0-9]/.test(password)) score += 1;
-            
-            // Penalize for patterns and repetitions
-            if (/(.)\1{2,}/.test(password)) score = Math.max(0, score - 2); // Repeated characters
-            if (/123|abc|qwe|password|qwerty/i.test(password)) score = Math.max(0, score - 3); // Common sequences
-            
-            // Cap score between 0 and 6
-            score = Math.max(0, Math.min(6, score));
-            
-            // Determine strength text and color
-            let strengthText, strengthClass;
-            if (score <= 1) {
-                strengthText = currentLang === 'ar' ? 'ضعيفة جداً' : 'Very Weak';
-                strengthClass = 'weak';
-            } else if (score <= 3) {
-                strengthText = currentLang === 'ar' ? 'ضعيفة' : 'Weak';
-                strengthClass = 'weak';
-            } else if (score <= 4) {
-                strengthText = currentLang === 'ar' ? 'متوسطة' : 'Medium';
-                strengthClass = 'medium';
-            } else {
-                strengthText = currentLang === 'ar' ? 'قوية' : 'Strong';
-                strengthClass = 'strong';
-            }
-            
-            // Calculate percentage for progress bar
-            const percentage = (score / 6) * 100;
-            
-            return { score, strengthText, strengthClass, percentage };
-        }
-
-        document.getElementById('generatePassword').addEventListener('click', () => {
-            const length = parseInt(document.getElementById('passwordLength').value);
-            const count = parseInt(document.getElementById('passwordCount').value);
-            const options = {
-                includeUppercase: document.getElementById('includeUppercase').checked,
-                includeLowercase: document.getElementById('includeLowercase').checked,
-                includeNumbers: document.getElementById('includeNumbers').checked,
-                includeSymbols: document.getElementById('includeSymbols').checked,
-                excludeSimilar: document.getElementById('excludeSimilar').checked,
-                excludeAmbiguous: document.getElementById('excludeAmbiguous').checked,
-                requireEach: document.getElementById('requireEach').checked
-            };
-            
-            if (length < 4 || length > 64) {
-                showNotification(translations[currentLang].notifications.invalidPasswordLength, 'error');
-                return;
-            }
-            
-            if (count < 1 || count > 10) {
-                showNotification(translations[currentLang].notifications.invalidPasswordCount, 'error');
-                return;
-            }
-            
-            const results = document.getElementById('passwordResults');
-            const strengthFill = document.getElementById('strengthFill');
-            const strengthText = document.getElementById('strengthText');
-            const passwordStrength = document.getElementById('passwordStrength');
-            
-            let passwords = [];
-            for (let i = 0; i < count; i++) {
-                const password = generatePassword(length, options);
-                if (password.startsWith('Error:')) {
-                    showNotification(translations[currentLang].notifications.error + ': ' + password, 'error');
-                    return;
-                }
-                passwords.push(password);
-            }
-            
-            results.innerHTML = passwords.map(p => 
-                `<div style="margin-bottom: 15px; background: var(--light); padding: 16px; border-radius: 12px; border: 1px solid var(--border);">
-                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
-                        <span style="font-family: monospace; font-size: 1.1rem; letter-spacing: 1px; direction:ltr;">${p}</span>
-                        <button class="btn copy-btn" style="padding: 6px 12px; min-width: auto; font-size: 0.9rem;" onclick="copyToClipboard('${p}')">
-                            <i class="fas fa-copy"></i> ${currentLang === 'ar' ? 'نسخ' : 'Copy'}
-                        </button>
-                    </div>
-                </div>`
-            ).join('');
-            
-            // Show strength for the first password
-            if (passwords.length > 0) {
-                const strength = calculatePasswordStrength(passwords[0]);
-                strengthFill.style.width = strength.percentage + '%';
-                strengthText.textContent = strength.strengthText;
-                passwordStrength.className = 'password-strength ' + strength.strengthClass;
-                showNotification(translations[currentLang].notifications.passwordGenerated, 'success');
-            }
-        });
-
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                showNotification(translations[currentLang].notifications.copied, 'success');
-            }).catch(err => {
-                console.error('Copy to clipboard error:', err);
-                showNotification(translations[currentLang].notifications.error + ': ' + 'فشل في النسخ إلى الحافظة', 'error');
-            });
-        }
-
-        // Short Link Generator
-        document.getElementById('generateShortLink').addEventListener('click', () => {
-            const longUrl = document.getElementById('longUrl').value;
-            const customAlias = document.getElementById('customAlias').value;
-            const expiryDate = document.getElementById('expiryDate').value;
-            
-            if (!longUrl.trim()) {
-                showNotification(translations[currentLang].notifications.invalidUrl, 'error');
-                return;
-            }
-            
-            try {
-                new URL(longUrl);
-            } catch (e) {
-                showNotification(translations[currentLang].notifications.invalidUrl, 'error');
-                return;
-            }
-            
-            // Generate short URL
-            const shortCode = customAlias || Math.random().toString(36).substr(2, 8);
-            const shortUrl = `https://short.ly/${shortCode}`;
-            
-            document.getElementById('shortLinkUrl').textContent = shortUrl;
-            document.getElementById('shortLinkUrl').href = shortUrl;
-            document.getElementById('shortLinkResult').classList.remove('hidden');
-            showNotification(translations[currentLang].notifications.shortLinkGenerated, 'success');
-        });
-
-        document.getElementById('copyShortLink').addEventListener('click', () => {
-            const shortUrl = document.getElementById('shortLinkUrl').textContent;
-            copyToClipboard(shortUrl);
-        });
-
-        document.getElementById('openShortLink').addEventListener('click', () => {
-            const shortUrl = document.getElementById('shortLinkUrl').href;
-            if (shortUrl && shortUrl !== '#') {
-                window.open(shortUrl, '_blank');
-            }
-        });
-
-        // WhatsApp Short Link
-        document.getElementById('whatsappShortLink').addEventListener('click', () => {
-            const shortUrl = document.getElementById('shortLinkUrl').textContent;
-            if (!shortUrl || shortUrl === '#') {
-                showNotification(translations[currentLang].notifications.error + ': ' + 'أنشئ رابطًا مختصرًا أولاً', 'error');
-                return;
-            }
-            
-            const t = translations[currentLang];
-            
-            // Create a simple dialog to get phone number
-            const countryCode = prompt(t.shortlink.whatsappBtn + '\n' + (t.qr.whatsappNumberLabel || 'Enter phone number with country code (e.g., 201012345678):'));
-            if (!countryCode || !/^\d+$/.test(countryCode)) {
-                showNotification(t.notifications.invalidPhoneNumber, 'error');
-                return;
-            }
-            
-            // Create WhatsApp URL with the short link
-            const whatsappUrl = `https://wa.me/${countryCode}?text=${encodeURIComponent(`رابط مختصر: ${shortUrl}`)}`;
-            window.open(whatsappUrl, '_blank');
-            showNotification(translations[currentLang].notifications.whatsappOpened, 'success');
         });
 
         // Initialize with sample data
@@ -1937,12 +1054,6 @@
             element.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter') {
                     e.preventDefault();
-                    // If it's a phone number input, trigger the corresponding WhatsApp button
-                    if (element.id === 'whatsappNumberQr') {
-                        document.getElementById('sendWhatsappTextQr').click();
-                    } else if (element.id === 'whatsappNumberBarcode') {
-                        document.getElementById('sendWhatsappTextBarcode').click();
-                    }
                 }
             });
         });
