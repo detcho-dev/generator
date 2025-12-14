@@ -252,6 +252,16 @@
             box-shadow: 0 6px 15px rgba(108, 117, 125, 0.3);
         }
 
+        .btn-whatsapp {
+            background: #25D366;
+            box-shadow: 0 4px 8px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+        }
+
         .btn-block {
             display: block;
             width: 100%;
@@ -468,6 +478,51 @@
             font-size: 1.2rem;
         }
 
+        .whatsapp-section {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border);
+            background: rgba(37, 211, 102, 0.05);
+            border-radius: 16px;
+        }
+
+        .whatsapp-section .preview-title {
+            color: #128C7E;
+            margin-bottom: 15px;
+        }
+
+        .whatsapp-section .preview-title::after {
+            background: #25D366;
+        }
+
+        .whatsapp-instructions {
+            margin-top: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            font-size: 0.95rem;
+            color: var(--gray);
+            text-align: right;
+        }
+
+        .whatsapp-instructions ol {
+            margin-top: 8px;
+            padding-right: 20px;
+        }
+
+        .whatsapp-instructions li {
+            margin-bottom: 5px;
+        }
+
+        .whatsapp-btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
         .notification {
             position: fixed;
             top: 20px;
@@ -501,6 +556,17 @@
 
         .notification.info {
             background: var(--primary);
+        }
+
+        .phone-input-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .country-code {
+            width: 100px;
+            flex-shrink: 0;
         }
 
         @media (max-width: 768px) {
@@ -541,6 +607,22 @@
             
             .preview-title {
                 font-size: 1.2rem;
+            }
+            
+            .whatsapp-btn-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .phone-input-group {
+                flex-direction: column;
+            }
+            
+            .country-code {
+                width: 100%;
             }
         }
 
@@ -682,9 +764,57 @@
                 <div id="qrCanvas" style="min-height: 300px; display: flex; align-items: center; justify-content: center;">
                     <div style="color: var(--gray); padding: 20px;">أدخل البيانات أعلاه لإنشاء رمز QR</div>
                 </div>
-                <button class="btn btn-secondary btn-block" id="downloadQr" style="margin-top: 25px;">
-                    <i class="fas fa-download"></i> تنزيل رمز QR
-                </button>
+                <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 25px; justify-content: center;">
+                    <button class="btn btn-secondary" id="downloadQr">
+                        <i class="fas fa-download"></i> تنزيل رمز QR
+                    </button>
+                    <button class="btn btn-whatsapp" id="whatsappQrData">
+                        <i class="fab fa-whatsapp"></i> إرسال النص عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- WhatsApp Sharing Section -->
+            <div class="whatsapp-section">
+                <h4 class="preview-title">إرسال عبر واتساب</h4>
+                <div class="form-group">
+                    <label for="whatsappNumberQr">رقم الهاتف (مع رمز الدولة)</label>
+                    <div class="phone-input-group">
+                        <select id="countryCodeQr" class="form-control country-code">
+                            <option value="20">مصر (+20)</option>
+                            <option value="966">السعودية (+966)</option>
+                            <option value="971">الإمارات (+971)</option>
+                            <option value="968">عمان (+968)</option>
+                            <option value="974">قطر (+974)</option>
+                            <option value="965">الكويت (+965)</option>
+                            <option value="962">الأردن (+962)</option>
+                            <option value="963">سوريا (+963)</option>
+                            <option value="964">العراق (+964)</option>
+                            <option value="972">فلسطين (+972)</option>
+                            <option value="1">الولايات المتحدة (+1)</option>
+                            <option value="44">المملكة المتحدة (+44)</option>
+                            <option value="93">أفغانستان (+93)</option>
+                            <option value="355">ألبانيا (+355)</option>
+                            <option value="213">الجزائر (+213)</option>
+                        </select>
+                        <input type="tel" id="whatsappNumberQr" class="form-control" placeholder="1012345678" style="flex: 1;">
+                    </div>
+                </div>
+                <div class="whatsapp-btn-group">
+                    <button class="btn btn-whatsapp" id="sendWhatsappTextQr">
+                        <i class="fab fa-whatsapp"></i> إرسال النص عبر واتساب
+                    </button>
+                    <button class="btn btn-secondary" id="copyQrImage">
+                        <i class="fas fa-copy"></i> نسخ الصورة للواتساب
+                    </button>
+                </div>
+                <div class="whatsapp-instructions">
+                    <p><strong>تعليمات:</strong></p>
+                    <ol>
+                        <li>لإرسال <strong>النص/الرابط</strong> مباشرة: أدخل رقم الهاتف ثم انقر على "إرسال النص عبر واتساب"</li>
+                        <li>لإرسال <strong>صورة رمز QR</strong>: انقر على "نسخ الصورة للواتساب" ثم افتح محادثة واتساب جديدة ولصق الصورة</li>
+                    </ol>
+                </div>
             </div>
         </div>
 
@@ -728,9 +858,57 @@
                 <div style="background: white; padding: 15px; border-radius: 16px; margin-bottom: 25px; box-shadow: var(--shadow);">
                     <svg id="barcodeCanvas" style="width: 100%; height: auto; min-height: 150px;"></svg>
                 </div>
-                <button class="btn btn-secondary btn-block" id="downloadBarcode" style="margin-top: 15px;">
-                    <i class="fas fa-download"></i> تنزيل الباركود
-                </button>
+                <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 15px; justify-content: center;">
+                    <button class="btn btn-secondary" id="downloadBarcode">
+                        <i class="fas fa-download"></i> تنزيل الباركود
+                    </button>
+                    <button class="btn btn-whatsapp" id="whatsappBarcodeData">
+                        <i class="fab fa-whatsapp"></i> إرسال النص عبر واتساب
+                    </button>
+                </div>
+            </div>
+
+            <!-- WhatsApp Sharing Section -->
+            <div class="whatsapp-section">
+                <h4 class="preview-title">إرسال عبر واتساب</h4>
+                <div class="form-group">
+                    <label for="whatsappNumberBarcode">رقم الهاتف (مع رمز الدولة)</label>
+                    <div class="phone-input-group">
+                        <select id="countryCodeBarcode" class="form-control country-code">
+                            <option value="20">مصر (+20)</option>
+                            <option value="966">السعودية (+966)</option>
+                            <option value="971">الإمارات (+971)</option>
+                            <option value="968">عمان (+968)</option>
+                            <option value="974">قطر (+974)</option>
+                            <option value="965">الكويت (+965)</option>
+                            <option value="962">الأردن (+962)</option>
+                            <option value="963">سوريا (+963)</option>
+                            <option value="964">العراق (+964)</option>
+                            <option value="972">فلسطين (+972)</option>
+                            <option value="1">الولايات المتحدة (+1)</option>
+                            <option value="44">المملكة المتحدة (+44)</option>
+                            <option value="93">أفغانستان (+93)</option>
+                            <option value="355">ألبانيا (+355)</option>
+                            <option value="213">الجزائر (+213)</option>
+                        </select>
+                        <input type="tel" id="whatsappNumberBarcode" class="form-control" placeholder="1012345678" style="flex: 1;">
+                    </div>
+                </div>
+                <div class="whatsapp-btn-group">
+                    <button class="btn btn-whatsapp" id="sendWhatsappTextBarcode">
+                        <i class="fab fa-whatsapp"></i> إرسال النص عبر واتساب
+                    </button>
+                    <button class="btn btn-secondary" id="copyBarcodeImage">
+                        <i class="fas fa-copy"></i> نسخ الصورة للواتساب
+                    </button>
+                </div>
+                <div class="whatsapp-instructions">
+                    <p><strong>تعليمات:</strong></p>
+                    <ol>
+                        <li>لإرسال <strong>النص/البيانات</strong> مباشرة: أدخل رقم الهاتف ثم انقر على "إرسال النص عبر واتساب"</li>
+                        <li>لإرسال <strong>صورة الباركود</strong>: انقر على "نسخ الصورة للواتساب" ثم افتح محادثة واتساب جديدة ولصق الصورة</li>
+                    </ol>
+                </div>
             </div>
         </div>
 
@@ -804,12 +982,15 @@
                 <h3 class="preview-title">نتيجة الرابط المختصر</h3>
                 <div id="shortLinkResult" class="short-link-result hidden">
                     <a id="shortLinkUrl" href="#" target="_blank"></a>
-                    <div style="display: flex; justify-content: center; gap: 15px;">
+                    <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px;">
                         <button class="btn copy-btn" id="copyShortLink">
                             <i class="fas fa-copy"></i> نسخ
                         </button>
                         <button class="btn btn-secondary" id="openShortLink">
                             <i class="fas fa-external-link-alt"></i> فتح
+                        </button>
+                        <button class="btn btn-whatsapp" id="whatsappShortLink">
+                            <i class="fab fa-whatsapp"></i> إرسال عبر واتساب
                         </button>
                     </div>
                 </div>
@@ -845,7 +1026,15 @@
                     logoSizeLabel: 'Logo Size (%)',
                     previewTitle: 'QR Code Preview',
                     downloadBtn: 'Download QR Code',
-                    autoUpdate: '⚡ All changes automatically update the QR code in real-time!'
+                    whatsappDataBtn: 'Send Data via WhatsApp',
+                    autoUpdate: '⚡ All changes automatically update the QR code in real-time!',
+                    whatsappSection: 'Share via WhatsApp',
+                    whatsappNumberLabel: 'Phone Number (with country code)',
+                    sendTextBtn: 'Send Text via WhatsApp',
+                    copyImageBtn: 'Copy Image to Clipboard',
+                    instructionsTitle: 'Instructions:',
+                    instruction1: 'To send the text/data: Enter phone number and click "Send Text via WhatsApp"',
+                    instruction2: 'To send the QR code image: Click "Copy Image to Clipboard" then open WhatsApp and paste'
                 },
                 barcode: {
                     title: 'Barcode Generator',
@@ -856,7 +1045,15 @@
                     widthLabel: 'Width (px)',
                     previewTitle: 'Barcode Preview',
                     downloadBtn: 'Download Barcode',
-                    autoUpdate: '⚡ All changes automatically update the barcode in real-time!'
+                    whatsappDataBtn: 'Send Data via WhatsApp',
+                    autoUpdate: '⚡ All changes automatically update the barcode in real-time!',
+                    whatsappSection: 'Share via WhatsApp',
+                    whatsappNumberLabel: 'Phone Number (with country code)',
+                    sendTextBtn: 'Send Text via WhatsApp',
+                    copyImageBtn: 'Copy Image to Clipboard',
+                    instructionsTitle: 'Instructions:',
+                    instruction1: 'To send the text/ Enter phone number and click "Send Text via WhatsApp"',
+                    instruction2: 'To send the barcode image: Click "Copy Image to Clipboard" then open WhatsApp and paste'
                 },
                 password: {
                     title: 'Password Generator',
@@ -882,7 +1079,8 @@
                     expiryLabel: 'Expiry Date (Optional)',
                     generateBtn: 'Generate Short Link',
                     previewTitle: 'Short Link Result',
-                    openBtn: 'Open'
+                    openBtn: 'Open',
+                    whatsappBtn: 'Send via WhatsApp'
                 },
                 notifications: {
                     copied: 'Copied to clipboard!',
@@ -893,7 +1091,10 @@
                     barcodeDownloaded: 'Barcode downloaded successfully!',
                     invalidUrl: 'Please enter a valid URL',
                     invalidPasswordLength: 'Password length must be between 4 and 64 characters',
-                    invalidPasswordCount: 'Number of passwords must be between 1 and 10'
+                    invalidPasswordCount: 'Number of passwords must be between 1 and 10',
+                    whatsappOpened: 'WhatsApp opened successfully!',
+                    imageCopied: 'Image copied to clipboard! Open WhatsApp and paste the image.',
+                    invalidPhoneNumber: 'Please enter a valid phone number'
                 }
             },
             ar: {
@@ -919,7 +1120,15 @@
                     logoSizeLabel: 'حجم الشعار (%)',
                     previewTitle: 'معاينة رمز QR',
                     downloadBtn: 'تنزيل رمز QR',
-                    autoUpdate: '⚡ جميع التغييرات تقوم بتحديث رمز QR تلقائياً!'
+                    whatsappDataBtn: 'إرسال النص عبر واتساب',
+                    autoUpdate: '⚡ جميع التغييرات تقوم بتحديث رمز QR تلقائياً!',
+                    whatsappSection: 'إرسال عبر واتساب',
+                    whatsappNumberLabel: 'رقم الهاتف (مع رمز الدولة)',
+                    sendTextBtn: 'إرسال النص عبر واتساب',
+                    copyImageBtn: 'نسخ الصورة للواتساب',
+                    instructionsTitle: 'تعليمات:',
+                    instruction1: 'لإرسال النص/الرابط مباشرة: أدخل رقم الهاتف ثم انقر على "إرسال النص عبر واتساب"',
+                    instruction2: 'لإرسال صورة رمز QR: انقر على "نسخ الصورة للواتساب" ثم افتح محادثة واتساب جديدة ولصق الصورة'
                 },
                 barcode: {
                     title: 'مولد الباركود',
@@ -930,7 +1139,15 @@
                     widthLabel: 'العرض (بكسل)',
                     previewTitle: 'معاينة الباركود',
                     downloadBtn: 'تنزيل الباركود',
-                    autoUpdate: '⚡ جميع التغييرات تقوم بتحديث الباركود تلقائياً!'
+                    whatsappDataBtn: 'إرسال النص عبر واتساب',
+                    autoUpdate: '⚡ جميع التغييرات تقوم بتحديث الباركود تلقائياً!',
+                    whatsappSection: 'إرسال عبر واتساب',
+                    whatsappNumberLabel: 'رقم الهاتف (مع رمز الدولة)',
+                    sendTextBtn: 'إرسال النص عبر واتساب',
+                    copyImageBtn: 'نسخ الصورة للواتساب',
+                    instructionsTitle: 'تعليمات:',
+                    instruction1: 'لإرسال النص/البيانات مباشرة: أدخل رقم الهاتف ثم انقر على "إرسال النص عبر واتساب"',
+                    instruction2: 'لإرسال صورة الباركود: انقر على "نسخ الصورة للواتساب" ثم افتح محادثة واتساب جديدة ولصق الصورة'
                 },
                 password: {
                     title: 'مولد كلمة المرور',
@@ -956,7 +1173,8 @@
                     expiryLabel: 'تاريخ الانتهاء (اختياري)',
                     generateBtn: 'إنشاء رابط مختصر',
                     previewTitle: 'نتيجة الرابط المختصر',
-                    openBtn: 'فتح'
+                    openBtn: 'فتح',
+                    whatsappBtn: 'إرسال عبر واتساب'
                 },
                 notifications: {
                     copied: 'تم النسخ إلى الحافظة!',
@@ -967,7 +1185,10 @@
                     barcodeDownloaded: 'تم تنزيل الباركود بنجاح!',
                     invalidUrl: 'الرجاء إدخال رابط صالح',
                     invalidPasswordLength: 'يجب أن يكون طول كلمة المرور بين 4 و 64 حرفاً',
-                    invalidPasswordCount: 'يجب أن يكون عدد كلمات المرور بين 1 و 10'
+                    invalidPasswordCount: 'يجب أن يكون عدد كلمات المرور بين 1 و 10',
+                    whatsappOpened: 'تم فتح واتساب بنجاح!',
+                    imageCopied: 'تم نسخ الصورة إلى الحافظة! افتح واتساب ولصق الصورة.',
+                    invalidPhoneNumber: 'الرجاء إدخال رقم هاتف صالح'
                 }
             }
         };
@@ -1046,6 +1267,16 @@
                 document.querySelector('label[for="qrLogoSize"]').textContent = t.qr.logoSizeLabel;
                 document.querySelector('#qr .preview-title').textContent = t.qr.previewTitle;
                 document.getElementById('downloadQr').innerHTML = `<i class="fas fa-download"></i> ${t.qr.downloadBtn}`;
+                document.getElementById('whatsappQrData').innerHTML = `<i class="fab fa-whatsapp"></i> ${t.qr.whatsappDataBtn}`;
+                
+                // Update WhatsApp section
+                document.querySelector('.whatsapp-section .preview-title').textContent = t.qr.whatsappSection;
+                document.querySelector('label[for="whatsappNumberQr"]').textContent = t.qr.whatsappNumberLabel;
+                document.getElementById('sendWhatsappTextQr').innerHTML = `<i class="fab fa-whatsapp"></i> ${t.qr.sendTextBtn}`;
+                document.getElementById('copyQrImage').innerHTML = `<i class="fas fa-copy"></i> ${t.qr.copyImageBtn}`;
+                document.querySelector('.whatsapp-instructions p strong').textContent = t.qr.instructionsTitle;
+                document.querySelectorAll('.whatsapp-instructions ol li')[0].textContent = t.qr.instruction1;
+                document.querySelectorAll('.whatsapp-instructions ol li')[1].textContent = t.qr.instruction2;
             }
             
             // Update Barcode tab
@@ -1058,6 +1289,16 @@
                 document.querySelector('label[for="barcodeWidth"]').textContent = t.barcode.widthLabel;
                 document.querySelector('#barcode .preview-title').textContent = t.barcode.previewTitle;
                 document.getElementById('downloadBarcode').innerHTML = `<i class="fas fa-download"></i> ${t.barcode.downloadBtn}`;
+                document.getElementById('whatsappBarcodeData').innerHTML = `<i class="fab fa-whatsapp"></i> ${t.barcode.whatsappDataBtn}`;
+                
+                // Update WhatsApp section
+                document.querySelector('#barcode .whatsapp-section .preview-title').textContent = t.barcode.whatsappSection;
+                document.querySelector('label[for="whatsappNumberBarcode"]').textContent = t.barcode.whatsappNumberLabel;
+                document.getElementById('sendWhatsappTextBarcode').innerHTML = `<i class="fab fa-whatsapp"></i> ${t.barcode.sendTextBtn}`;
+                document.getElementById('copyBarcodeImage').innerHTML = `<i class="fas fa-copy"></i> ${t.barcode.copyImageBtn}`;
+                document.querySelector('#barcode .whatsapp-instructions p strong').textContent = t.barcode.instructionsTitle;
+                document.querySelectorAll('#barcode .whatsapp-instructions ol li')[0].textContent = t.barcode.instruction1;
+                document.querySelectorAll('#barcode .whatsapp-instructions ol li')[1].textContent = t.barcode.instruction2;
             }
             
             // Update Password tab
@@ -1088,6 +1329,7 @@
                 document.getElementById('generateShortLink').innerHTML = `<i class="fas fa-link"></i> ${t.shortlink.generateBtn}`;
                 document.querySelector('#shortlink .preview-title').textContent = t.shortlink.previewTitle;
                 document.getElementById('openShortLink').innerHTML = `<i class="fas fa-external-link-alt"></i> ${t.shortlink.openBtn || 'Open'}`;
+                document.getElementById('whatsappShortLink').innerHTML = `<i class="fab fa-whatsapp"></i> ${t.shortlink.whatsappBtn || 'Send via WhatsApp'}`;
             }
         }
 
@@ -1215,6 +1457,68 @@
             showNotification(translations[currentLang].notifications.qrDownloaded, 'success');
         });
 
+        // WhatsApp QR Code Data
+        document.getElementById('whatsappQrData').addEventListener('click', () => {
+            const qrData = document.getElementById('qrData').value.trim();
+            if (!qrData) {
+                showNotification(translations[currentLang].notifications.error + ': ' + 'أدخل البيانات أولاً', 'error');
+                return;
+            }
+            
+            const countryCode = document.getElementById('countryCodeQr').value;
+            const phoneNumber = document.getElementById('whatsappNumberQr').value.trim();
+            const fullNumber = countryCode + phoneNumber;
+            
+            if (!phoneNumber || !/^\d+$/.test(phoneNumber)) {
+                showNotification(translations[currentLang].notifications.invalidPhoneNumber, 'error');
+                return;
+            }
+            
+            // Create WhatsApp URL with the QR code data
+            const whatsappUrl = `https://wa.me/${fullNumber}?text=${encodeURIComponent(qrData)}`;
+            window.open(whatsappUrl, '_blank');
+            showNotification(translations[currentLang].notifications.whatsappOpened, 'success');
+        });
+
+        document.getElementById('sendWhatsappTextQr').addEventListener('click', () => {
+            document.getElementById('whatsappQrData').click();
+        });
+
+        // Copy QR Image to Clipboard
+        document.getElementById('copyQrImage').addEventListener('click', async () => {
+            const qrCanvas = document.getElementById('qrCanvas').querySelector('canvas');
+            if (!qrCanvas) {
+                showNotification(translations[currentLang].notifications.error + ': ' + 'لم يتم العثور على رمز QR', 'error');
+                return;
+            }
+            
+            try {
+                // Convert canvas to blob
+                const dataUrl = qrCanvas.toDataURL('image/png');
+                const response = await fetch(dataUrl);
+                const blob = await response.blob();
+                
+                // Copy to clipboard
+                await navigator.clipboard.write([
+                    new ClipboardItem({ 'image/png': blob })
+                ]);
+                
+                showNotification(translations[currentLang].notifications.imageCopied, 'success');
+            } catch (err) {
+                console.error('Error copying image to clipboard:', err);
+                
+                // Fallback: Create a temporary link for downloading
+                const link = document.createElement('a');
+                link.download = 'qr-code.png';
+                link.href = qrCanvas.toDataURL('image/png');
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                showNotification(translations[currentLang].notifications.error + ': ' + 'تم تنزيل الصورة بدلاً من النسخ. افتح واتساب ولصق الصورة يدوياً', 'warning');
+            }
+        });
+
         // Barcode Generator with real-time updates
         function updateBarcode() {
             const barcodeData = document.getElementById('barcodeData').value;
@@ -1299,6 +1603,88 @@
             };
             
             img.src = url;
+        });
+
+        // WhatsApp Barcode Data
+        document.getElementById('whatsappBarcodeData').addEventListener('click', () => {
+            const barcodeData = document.getElementById('barcodeData').value.trim();
+            if (!barcodeData) {
+                showNotification(translations[currentLang].notifications.error + ': ' + 'أدخل البيانات أولاً', 'error');
+                return;
+            }
+            
+            const countryCode = document.getElementById('countryCodeBarcode').value;
+            const phoneNumber = document.getElementById('whatsappNumberBarcode').value.trim();
+            const fullNumber = countryCode + phoneNumber;
+            
+            if (!phoneNumber || !/^\d+$/.test(phoneNumber)) {
+                showNotification(translations[currentLang].notifications.invalidPhoneNumber, 'error');
+                return;
+            }
+            
+            // Create WhatsApp URL with the barcode data
+            const whatsappUrl = `https://wa.me/${fullNumber}?text=${encodeURIComponent(barcodeData)}`;
+            window.open(whatsappUrl, '_blank');
+            showNotification(translations[currentLang].notifications.whatsappOpened, 'success');
+        });
+
+        document.getElementById('sendWhatsappTextBarcode').addEventListener('click', () => {
+            document.getElementById('whatsappBarcodeData').click();
+        });
+
+        // Copy Barcode Image to Clipboard
+        document.getElementById('copyBarcodeImage').addEventListener('click', async () => {
+            const svg = document.getElementById('barcodeCanvas');
+            if (!svg) {
+                showNotification(translations[currentLang].notifications.error + ': ' + 'لم يتم العثور على الباركود', 'error');
+                return;
+            }
+            
+            try {
+                // Create a canvas to render the SVG
+                const bbox = svg.getBBox();
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                const padding = 20;
+                canvas.width = bbox.width + padding * 2;
+                canvas.height = bbox.height + padding * 2;
+                
+                // Draw the SVG on canvas
+                const svgData = new XMLSerializer().serializeToString(svg);
+                const img = new Image();
+                const svgBlob = new Blob([svgData], {type: "image/svg+xml;charset=utf-8"});
+                const url = URL.createObjectURL(svgBlob);
+                
+                img.onload = async () => {
+                    ctx.fillStyle = 'white';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    ctx.drawImage(img, padding, padding);
+                    URL.revokeObjectURL(url);
+                    
+                    // Convert canvas to blob
+                    canvas.toBlob(async (blob) => {
+                        if (blob) {
+                            // Copy to clipboard
+                            await navigator.clipboard.write([
+                                new ClipboardItem({ 'image/png': blob })
+                            ]);
+                            showNotification(translations[currentLang].notifications.imageCopied, 'success');
+                        } else {
+                            throw new Error('Failed to create blob');
+                        }
+                    }, 'image/png');
+                };
+                
+                img.onerror = () => {
+                    URL.revokeObjectURL(url);
+                    showNotification(translations[currentLang].notifications.error + ': ' + 'فشل في تحويل الباركود إلى صورة', 'error');
+                };
+                
+                img.src = url;
+            } catch (err) {
+                console.error('Error copying barcode image to clipboard:', err);
+                showNotification(translations[currentLang].notifications.error + ': ' + 'فشل في نسخ الصورة. حاول التنزيل بدلاً من ذلك', 'error');
+            }
         });
 
         // Password Generator
@@ -1519,6 +1905,29 @@
             }
         });
 
+        // WhatsApp Short Link
+        document.getElementById('whatsappShortLink').addEventListener('click', () => {
+            const shortUrl = document.getElementById('shortLinkUrl').textContent;
+            if (!shortUrl || shortUrl === '#') {
+                showNotification(translations[currentLang].notifications.error + ': ' + 'أنشئ رابطًا مختصرًا أولاً', 'error');
+                return;
+            }
+            
+            const t = translations[currentLang];
+            
+            // Create a simple dialog to get phone number
+            const countryCode = prompt(t.shortlink.whatsappBtn + '\n' + (t.qr.whatsappNumberLabel || 'Enter phone number with country code (e.g., 201012345678):'));
+            if (!countryCode || !/^\d+$/.test(countryCode)) {
+                showNotification(t.notifications.invalidPhoneNumber, 'error');
+                return;
+            }
+            
+            // Create WhatsApp URL with the short link
+            const whatsappUrl = `https://wa.me/${countryCode}?text=${encodeURIComponent(`رابط مختصر: ${shortUrl}`)}`;
+            window.open(whatsappUrl, '_blank');
+            showNotification(translations[currentLang].notifications.whatsappOpened, 'success');
+        });
+
         // Initialize with sample data
         updateQrCode();
         updateBarcode();
@@ -1528,6 +1937,12 @@
             element.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter') {
                     e.preventDefault();
+                    // If it's a phone number input, trigger the corresponding WhatsApp button
+                    if (element.id === 'whatsappNumberQr') {
+                        document.getElementById('sendWhatsappTextQr').click();
+                    } else if (element.id === 'whatsappNumberBarcode') {
+                        document.getElementById('sendWhatsappTextBarcode').click();
+                    }
                 }
             });
         });
