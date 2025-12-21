@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مولدات الرموز المتقدمة</title>
+    <title>Advanced Code Generators</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.5/JsBarcode.all.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* Same CSS as before — kept unchanged for brevity */
         * {
             margin: 0;
             padding: 0;
@@ -250,6 +251,16 @@
         .btn-secondary:hover {
             background: #5a6268;
             box-shadow: 0 6px 15px rgba(108, 117, 125, 0.3);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            box-shadow: 0 4px 8px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            background: #1faa59;
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
         }
 
         .btn-block {
@@ -546,56 +557,65 @@
 <body>
     <div class="container">
         <header>
-            <h1>مولدات الرموز المتقدمة</h1>
-            <p>أنشئ رموز QR والباركود بكل سهولة</p>
-            <div class="developer-stamp">تطوير بواسطة يوسف أحمد</div>
-            <div class="language-switch" id="languageSwitch">EN</div>
+            <h1>Advanced Code Generators</h1>
+            <p>Generate QR Codes and Barcodes easily</p>
+            <div class="developer-stamp">Developed By Youssef Ahmed</div>
+            <div class="language-switch" id="languageSwitch">AR</div>
         </header>
 
         <div class="tabs">
-            <button class="tab-btn active" data-tab="qr">مولد رمز QR</button>
-            <button class="tab-btn" data-tab="barcode">مولد الباركود</button>
+            <button class="tab-btn active" data-tab="qr">QR Code Generator</button>
+            <button class="tab-btn" data-tab="barcode">Barcode Generator</button>
         </div>
 
         <!-- QR Code Generator -->
         <div id="qr" class="tab-content active">
             <div class="auto-update-info">
                 <i class="fas fa-bolt"></i>
-                <span>جميع التغييرات تقوم بتحديث رمز QR تلقائياً!</span>
+                <span>⚡ All changes automatically update the QR code in real-time!</span>
             </div>
             
             <div class="form-group">
-                <label for="qrData">البيانات للتشفير</label>
-                <input type="text" id="qrData" class="form-control" placeholder="أدخل النص أو الرابط أو البيانات للتشفير" value="https://example.com">
+                <label for="qrData">Data to Encode</label>
+                <input type="text" id="qrData" class="form-control" placeholder="Enter text, URL, or data to encode" value="https://example.com">
             </div>
             
             <div class="form-row">
                 <div class="form-group">
-                    <label for="qrSize">الحجم (بكسل)</label>
+                    <label for="qrSize">Size (px)</label>
                     <input type="number" id="qrSize" class="form-control" min="100" max="500" value="300">
                 </div>
                 <div class="form-group">
-                    <label for="qrColor">لون المقدمة</label>
+                    <label for="qrColor">Foreground Color</label>
                     <input type="color" id="qrColor" class="form-control" value="#000000">
                 </div>
                 <div class="form-group">
-                    <label for="qrBgColor">لون الخلفية</label>
+                    <label for="qrBgColor">Background Color</label>
                     <input type="color" id="qrBgColor" class="form-control" value="#ffffff">
                 </div>
             </div>
             
             <div class="preview-container">
-                <h3 class="preview-title">معاينة رمز QR</h3>
+                <h3 class="preview-title">QR Code Preview</h3>
                 <div id="qrCanvas" style="min-height: 300px; display: flex; align-items: center; justify-content: center;">
-                    <div style="color: var(--gray); padding: 20px;">أدخل البيانات أعلاه لإنشاء رمز QR</div>
+                    <div style="color: var(--gray); padding: 20px;">Enter data above to generate QR code</div>
                 </div>
                 <div class="btn-group">
                     <button class="btn btn-secondary" id="downloadQr">
-                        <i class="fas fa-download"></i> تنزيل رمز QR
+                        <i class="fas fa-download"></i> Download QR Code
                     </button>
                     <button class="btn btn-secondary" id="copyQr">
-                        <i class="fas fa-copy"></i> نسخ الصورة
+                        <i class="fas fa-copy"></i> Copy Image
                     </button>
+                </div>
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="whatsappNumberQr">WhatsApp Number (Optional)</label>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <input type="text" id="whatsappNumberQr" class="form-control" placeholder="e.g. +1234567890" style="flex: 1; min-width: 200px;">
+                        <button class="btn btn-whatsapp" id="whatsappBtnQr">
+                            <i class="fab fa-whatsapp"></i> Open on WhatsApp
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -604,17 +624,17 @@
         <div id="barcode" class="tab-content">
             <div class="auto-update-info">
                 <i class="fas fa-bolt"></i>
-                <span>جميع التغييرات تقوم بتحديث الباركود تلقائياً!</span>
+                <span>⚡ All changes automatically update the barcode in real-time!</span>
             </div>
             
             <div class="form-group">
-                <label for="barcodeData">البيانات للتشفير</label>
-                <input type="text" id="barcodeData" class="form-control" placeholder="أدخل النص للتشفير كباركود" value="1234567890">
+                <label for="barcodeData">Data to Encode</label>
+                <input type="text" id="barcodeData" class="form-control" placeholder="Enter text to encode as barcode" value="1234567890">
             </div>
             
             <div class="form-row">
                 <div class="form-group">
-                    <label for="barcodeType">نوع الباركود</label>
+                    <label for="barcodeType">Barcode Type</label>
                     <select id="barcodeType" class="form-control">
                         <option value="CODE128">CODE128</option>
                         <option value="EAN13">EAN13</option>
@@ -626,27 +646,41 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="barcodeHeight">الارتفاع (بكسل)</label>
+                    <label for="barcodeHeight">Height (px)</label>
                     <input type="number" id="barcodeHeight" class="form-control" min="50" max="200" value="80">
                 </div>
                 <div class="form-group">
-                    <label for="barcodeWidth">العرض (بكسل)</label>
+                    <label for="barcodeWidth">Width (px)</label>
                     <input type="number" id="barcodeWidth" class="form-control" min="1" max="5" value="2">
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="displayBarcodeText" checked> Show Text Below Barcode
+                    </label>
                 </div>
             </div>
             
             <div class="preview-container">
-                <h3 class="preview-title">معاينة الباركود</h3>
+                <h3 class="preview-title">Barcode Preview</h3>
                 <div style="background: white; padding: 15px; border-radius: 16px; margin-bottom: 25px; box-shadow: var(--shadow);">
                     <svg id="barcodeCanvas" style="width: 100%; height: auto; min-height: 150px;"></svg>
                 </div>
                 <div class="btn-group">
                     <button class="btn btn-secondary" id="downloadBarcode">
-                        <i class="fas fa-download"></i> تنزيل الباركود
+                        <i class="fas fa-download"></i> Download Barcode
                     </button>
                     <button class="btn btn-secondary" id="copyBarcode">
-                        <i class="fas fa-copy"></i> نسخ الصورة
+                        <i class="fas fa-copy"></i> Copy Image
                     </button>
+                </div>
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="whatsappNumberBarcode">WhatsApp Number (Optional)</label>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <input type="text" id="whatsappNumberBarcode" class="form-control" placeholder="e.g. +1234567890" style="flex: 1; min-width: 200px;">
+                        <button class="btn btn-whatsapp" id="whatsappBtnBarcode">
+                            <i class="fab fa-whatsapp"></i> Open on WhatsApp
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -655,7 +689,6 @@
     <div class="notification" id="notification"></div>
 
     <script>
-        // Language translations
         const translations = {
             en: {
                 title: 'Advanced Code Generators',
@@ -675,7 +708,8 @@
                     previewTitle: 'QR Code Preview',
                     downloadBtn: 'Download QR Code',
                     copyBtn: 'Copy Image',
-                    autoUpdate: '⚡ All changes automatically update the QR code in real-time!'
+                    autoUpdate: '⚡ All changes automatically update the QR code in real-time!',
+                    whatsappLabel: 'WhatsApp Number (Optional)'
                 },
                 barcode: {
                     title: 'Barcode Generator',
@@ -687,7 +721,9 @@
                     previewTitle: 'Barcode Preview',
                     downloadBtn: 'Download Barcode',
                     copyBtn: 'Copy Image',
-                    autoUpdate: '⚡ All changes automatically update the barcode in real-time!'
+                    autoUpdate: '⚡ All changes automatically update the barcode in real-time!',
+                    textToggle: 'Show Text Below Barcode',
+                    whatsappLabel: 'WhatsApp Number (Optional)'
                 },
                 notifications: {
                     copied: 'Image copied to clipboard!',
@@ -715,7 +751,8 @@
                     previewTitle: 'معاينة رمز QR',
                     downloadBtn: 'تنزيل رمز QR',
                     copyBtn: 'نسخ الصورة',
-                    autoUpdate: '⚡ جميع التغييرات تقوم بتحديث رمز QR تلقائياً!'
+                    autoUpdate: '⚡ جميع التغييرات تقوم بتحديث رمز QR تلقائياً!',
+                    whatsappLabel: 'رقم واتساب (اختياري)'
                 },
                 barcode: {
                     title: 'مولد الباركود',
@@ -727,7 +764,9 @@
                     previewTitle: 'معاينة الباركود',
                     downloadBtn: 'تنزيل الباركود',
                     copyBtn: 'نسخ الصورة',
-                    autoUpdate: '⚡ جميع التغييرات تقوم بتحديث الباركود تلقائياً!'
+                    autoUpdate: '⚡ جميع التغييرات تقوم بتحديث الباركود تلقائياً!',
+                    textToggle: 'إظهار النص أسفل الباركود',
+                    whatsappLabel: 'رقم واتساب (اختياري)'
                 },
                 notifications: {
                     copied: 'تم نسخ الصورة إلى الحافظة!',
@@ -739,21 +778,17 @@
             }
         };
 
-        let currentLang = 'ar';
+        let currentLang = 'en';
         const notification = document.getElementById('notification');
 
-        // Helper function to show notifications
         function showNotification(message, type = 'info') {
             notification.textContent = message;
             notification.className = `notification ${type}`;
             notification.classList.add('show');
-            
-            setTimeout(() => {
-                notification.classList.remove('show');
-            }, 3000);
+            setTimeout(() => notification.classList.remove('show'), 3000);
         }
 
-        // Tab switching functionality
+        // Tab switching
         document.querySelectorAll('.tab-btn').forEach(button => {
             button.addEventListener('click', () => {
                 document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -764,42 +799,35 @@
             });
         });
 
-        // Language switching
+        // Language switch
         document.getElementById('languageSwitch').addEventListener('click', () => {
-            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
             updateLanguage();
             updateDirection();
         });
 
         function updateDirection() {
-            if (currentLang === 'ar') {
-                document.documentElement.dir = 'rtl';
-                document.documentElement.lang = 'ar';
-                document.body.style.direction = 'rtl';
-            } else {
-                document.documentElement.dir = 'ltr';
-                document.documentElement.lang = 'en';
-                document.body.style.direction = 'ltr';
-            }
+            const dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.dir = dir;
+            document.documentElement.lang = currentLang;
+            document.body.style.direction = dir;
         }
 
         function updateLanguage() {
             const t = translations[currentLang];
-            
-            // Update header
             document.querySelector('h1').textContent = t.title;
             document.querySelector('header p').textContent = t.subtitle;
             document.querySelector('.developer-stamp').textContent = t.developer;
-            document.getElementById('languageSwitch').textContent = currentLang === 'ar' ? 'EN' : 'AR';
-            
+            document.getElementById('languageSwitch').textContent = currentLang === 'en' ? 'AR' : 'EN';
+
             // Update tabs
             document.querySelectorAll('.tab-btn[data-tab="qr"]')[0].textContent = t.tabs.qr;
             document.querySelectorAll('.tab-btn[data-tab="barcode"]')[0].textContent = t.tabs.barcode;
-            
-            // Update QR tab
+
+            // Update active tab content
             if (document.getElementById('qr').classList.contains('active')) {
                 document.querySelector('#qr .auto-update-info span').textContent = t.qr.autoUpdate;
-                document.querySelector('#qrData').placeholder = t.qr.dataPlaceholder;
+                document.getElementById('qrData').placeholder = t.qr.dataPlaceholder;
                 document.querySelector('label[for="qrData"]').textContent = t.qr.dataLabel;
                 document.querySelector('label[for="qrSize"]').textContent = t.qr.sizeLabel;
                 document.querySelector('label[for="qrColor"]').textContent = t.qr.colorLabel;
@@ -807,12 +835,12 @@
                 document.querySelector('#qr .preview-title').textContent = t.qr.previewTitle;
                 document.getElementById('downloadQr').innerHTML = `<i class="fas fa-download"></i> ${t.qr.downloadBtn}`;
                 document.getElementById('copyQr').innerHTML = `<i class="fas fa-copy"></i> ${t.qr.copyBtn}`;
+                document.querySelector('label[for="whatsappNumberQr"]').textContent = t.qr.whatsappLabel;
             }
-            
-            // Update Barcode tab
+
             if (document.getElementById('barcode').classList.contains('active')) {
                 document.querySelector('#barcode .auto-update-info span').textContent = t.barcode.autoUpdate;
-                document.querySelector('#barcodeData').placeholder = t.barcode.dataPlaceholder;
+                document.getElementById('barcodeData').placeholder = t.barcode.dataPlaceholder;
                 document.querySelector('label[for="barcodeData"]').textContent = t.barcode.dataLabel;
                 document.querySelector('label[for="barcodeType"]').textContent = t.barcode.typeLabel;
                 document.querySelector('label[for="barcodeHeight"]').textContent = t.barcode.heightLabel;
@@ -820,257 +848,185 @@
                 document.querySelector('#barcode .preview-title').textContent = t.barcode.previewTitle;
                 document.getElementById('downloadBarcode').innerHTML = `<i class="fas fa-download"></i> ${t.barcode.downloadBtn}`;
                 document.getElementById('copyBarcode').innerHTML = `<i class="fas fa-copy"></i> ${t.barcode.copyBtn}`;
+                const toggleLabel = document.querySelector('label[for="displayBarcodeText"]').childNodes[1];
+                toggleLabel.textContent = t.barcode.textToggle;
+                document.querySelector('label[for="whatsappNumberBarcode"]').textContent = t.barcode.whatsappLabel;
             }
         }
 
-        // QR Code Generator with real-time updates
+        // QR Code
+        let qrInstance = null;
         function updateQrCode() {
-            const qrData = document.getElementById('qrData').value;
-            const size = document.getElementById('qrSize').value;
+            const qrData = document.getElementById('qrData').value.trim();
+            const size = parseInt(document.getElementById('qrSize').value) || 300;
             const color = document.getElementById('qrColor').value;
             const bgColor = document.getElementById('qrBgColor').value;
-
             const qrContainer = document.getElementById('qrCanvas');
-            
-            if (!qrData.trim()) {
-                qrContainer.innerHTML = `<div style="color: var(--gray); padding: 40px; text-align: center; line-height: 1.7;">أدخل البيانات أعلاه لإنشاء رمز QR</div>`;
-                return;
-            }
 
             qrContainer.innerHTML = '';
-
-            const qrCanvas = document.createElement('canvas');
-            qrCanvas.width = size;
-            qrCanvas.height = size;
-            qrContainer.appendChild(qrCanvas);
-
-            try {
-                new QRCode(qrCanvas, {
-                    text: qrData,
-                    width: size,
-                    height: size,
-                    colorDark: color,
-                    colorLight: bgColor,
-                    correctLevel: QRCode.CorrectLevel.H
-                });
-            } catch (error) {
-                qrContainer.innerHTML = `<div style="color: var(--danger); padding: 40px; text-align: center; line-height: 1.7;">خطأ في إنشاء رمز QR: ${error.message}</div>`;
-                console.error('QR Code generation error:', error);
-            }
-        }
-
-        document.getElementById('qrData').addEventListener('input', updateQrCode);
-        document.getElementById('qrSize').addEventListener('input', updateQrCode);
-        document.getElementById('qrColor').addEventListener('input', updateQrCode);
-        document.getElementById('qrBgColor').addEventListener('input', updateQrCode);
-
-        document.getElementById('downloadQr').addEventListener('click', () => {
-            const qrCanvas = document.getElementById('qrCanvas').querySelector('canvas');
-            if (!qrCanvas) {
-                showNotification(translations[currentLang].notifications.error + ': ' + 'لم يتم العثور على رمز QR', 'error');
+            if (!qrData) {
+                qrContainer.innerHTML = '<div style="color: var(--gray); padding: 40px; text-align: center;">Enter data above to generate QR code</div>';
                 return;
             }
 
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            qrContainer.appendChild(canvas);
+
+            if (qrInstance) qrInstance.clear();
+            qrInstance = new QRCode(canvas, {
+                text: qrData,
+                width: size,
+                height: size,
+                colorDark: color,
+                colorLight: bgColor,
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+
+        ['qrData', 'qrSize', 'qrColor', 'qrBgColor'].forEach(id => {
+            document.getElementById(id).addEventListener('input', updateQrCode);
+        });
+
+        document.getElementById('downloadQr').addEventListener('click', () => {
+            const canvas = document.getElementById('qrCanvas').querySelector('canvas');
+            if (!canvas) return showNotification('No QR code to download', 'error');
             const link = document.createElement('a');
-            link.download = 'qr-code-' + new Date().toISOString().replace(/[:.]/g, '-') + '.png';
-            link.href = qrCanvas.toDataURL('image/png');
-            document.body.appendChild(link);
+            link.download = `qr-code-${new Date().toISOString().slice(0,10)}.png`;
+            link.href = canvas.toDataURL();
             link.click();
-            document.body.removeChild(link);
-            showNotification(translations[currentLang].notifications.qrDownloaded, 'success');
+            showNotification('QR code downloaded!', 'success');
         });
 
         document.getElementById('copyQr').addEventListener('click', async () => {
-            const qrCanvas = document.getElementById('qrCanvas').querySelector('canvas');
-            if (!qrCanvas) {
-                showNotification(translations[currentLang].notifications.error + ': ' + 'لم يتم العثور على رمز QR', 'error');
-                return;
-            }
-            
+            const canvas = document.getElementById('qrCanvas').querySelector('canvas');
+            if (!canvas) return showNotification('No QR code to copy', 'error');
             try {
-                // Convert canvas to blob
-                const dataUrl = qrCanvas.toDataURL('image/png');
-                const response = await fetch(dataUrl);
-                const blob = await response.blob();
-                
-                // Copy to clipboard
-                await navigator.clipboard.write([
-                    new ClipboardItem({ 'image/png': blob })
-                ]);
-                
-                showNotification(translations[currentLang].notifications.imageCopied, 'success');
-            } catch (err) {
-                console.error('Error copying image to clipboard:', err);
-                showNotification(translations[currentLang].notifications.error + ': ' + 'فشل في نسخ الصورة', 'error');
+                const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+                await navigator.clipboard.write([new ClipboardItem({'image/png': blob})]);
+                showNotification('Image copied to clipboard!', 'success');
+            } catch (e) {
+                showNotification('Copy failed. Try downloading instead.', 'error');
             }
         });
 
-        // Barcode Generator with real-time updates
-        function updateBarcode() {
-            const barcodeData = document.getElementById('barcodeData').value;
-            const barcodeType = document.getElementById('barcodeType').value;
-            const height = document.getElementById('barcodeHeight').value;
-            const width = document.getElementById('barcodeWidth').value;
+        // WhatsApp QR
+        document.getElementById('whatsappBtnQr').addEventListener('click', () => {
+            const number = document.getElementById('whatsappNumberQr').value.trim();
+            if (!number) return showNotification('Please enter a WhatsApp number', 'warning');
+            window.open(`https://wa.me/${number.replace(/\D/g, '')}`, '_blank');
+        });
 
-            const barcodeContainer = document.getElementById('barcodeCanvas').parentNode;
-            
-            if (!barcodeData.trim()) {
+        // Barcode
+        function updateBarcode() {
+            const data = document.getElementById('barcodeData').value.trim();
+            const type = document.getElementById('barcodeType').value;
+            const height = parseInt(document.getElementById('barcodeHeight').value) || 80;
+            const width = parseInt(document.getElementById('barcodeWidth').value) || 2;
+            const displayValue = document.getElementById('displayBarcodeText').checked;
+
+            if (!data) {
                 document.getElementById('barcodeCanvas').innerHTML = '';
                 return;
             }
 
-            try {
-                JsBarcode("#barcodeCanvas", barcodeData, {
-                    format: barcodeType,
-                    height: height,
-                    width: width,
-                    displayValue: true,
-                    fontOptions: "bold",
-                    textAlign: "center",
-                    textPosition: "bottom",
-                    textMargin: 8,
-                    fontSize: 16,
-                    background: '#ffffff',
-                    lineColor: '#000000'
-                });
-                barcodeContainer.style.minHeight = 'auto';
-            } catch (error) {
-                console.error('Barcode generation error:', error);
-                document.getElementById('barcodeCanvas').innerHTML = '';
-                barcodeContainer.style.minHeight = '150px';
-                barcodeContainer.innerHTML = `<div style="color: var(--danger); padding: 20px; text-align: center; line-height: 1.6;">
-                    خطأ في إنشاء الباركود: ${error.message}<br>
-                    حاول استخدام نوع باركود مختلف أو تعديل البيانات
-                </div>`;
-            }
+            JsBarcode("#barcodeCanvas", data, {
+                format: type,
+                height: height,
+                width: width,
+                displayValue: displayValue,
+                fontOptions: "bold",
+                textAlign: "center",
+                textPosition: "bottom",
+                textMargin: 8,
+                fontSize: 16,
+                background: '#ffffff',
+                lineColor: '#000000'
+            });
         }
 
-        document.getElementById('barcodeData').addEventListener('input', updateBarcode);
-        document.getElementById('barcodeType').addEventListener('change', updateBarcode);
-        document.getElementById('barcodeHeight').addEventListener('input', updateBarcode);
-        document.getElementById('barcodeWidth').addEventListener('input', updateBarcode);
+        ['barcodeData', 'barcodeType', 'barcodeHeight', 'barcodeWidth', 'displayBarcodeText'].forEach(id => {
+            document.getElementById(id).addEventListener('input', updateBarcode);
+        });
 
         document.getElementById('downloadBarcode').addEventListener('click', () => {
             const svg = document.getElementById('barcodeCanvas');
-            const svgData = new XMLSerializer().serializeToString(svg);
+            const bbox = svg.getBBox();
             const canvas = document.createElement('canvas');
             const ctx = canvas.getContext('2d');
-            
-            // Get dimensions from SVG
-            const bbox = svg.getBBox();
             const padding = 20;
             canvas.width = bbox.width + padding * 2;
             canvas.height = bbox.height + padding * 2;
-            
-            // Draw on canvas
             const img = new Image();
-            const svgBlob = new Blob([svgData], {type: "image/svg+xml;charset=utf-8"});
-            const url = URL.createObjectURL(svgBlob);
-            
+            const svgData = new XMLSerializer().serializeToString(svg);
+            const blob = new Blob([svgData], {type: 'image/svg+xml;charset=utf-8'});
+            const url = URL.createObjectURL(blob);
+
             img.onload = () => {
-                ctx.fillStyle = 'white';
+                ctx.fillStyle = '#fff';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
                 ctx.drawImage(img, padding, padding);
-                URL.revokeObjectURL(url);
-                
-                // Create download link
                 const link = document.createElement('a');
-                link.download = 'barcode-' + new Date().toISOString().replace(/[:.]/g, '-') + '.png';
-                link.href = canvas.toDataURL('image/png');
-                document.body.appendChild(link);
+                link.download = `barcode-${new Date().toISOString().slice(0,10)}.png`;
+                link.href = canvas.toDataURL();
                 link.click();
-                document.body.removeChild(link);
-                showNotification(translations[currentLang].notifications.barcodeDownloaded, 'success');
-            };
-            
-            img.onerror = () => {
                 URL.revokeObjectURL(url);
-                showNotification(translations[currentLang].notifications.error + ': ' + 'فشل في إنشاء صورة الباركود', 'error');
+                showNotification('Barcode downloaded!', 'success');
             };
-            
             img.src = url;
         });
 
         document.getElementById('copyBarcode').addEventListener('click', async () => {
             const svg = document.getElementById('barcodeCanvas');
-            if (!svg) {
-                showNotification(translations[currentLang].notifications.error + ': ' + 'لم يتم العثور على الباركود', 'error');
-                return;
-            }
-            
             try {
-                // Create a canvas to render the SVG
                 const bbox = svg.getBBox();
-                const canvas = document.createElement('canvas');
-                const ctx = canvas.getContext('2d');
                 const padding = 20;
+                const canvas = document.createElement('canvas');
                 canvas.width = bbox.width + padding * 2;
                 canvas.height = bbox.height + padding * 2;
-                
-                // Draw the SVG on canvas
+                const ctx = canvas.getContext('2d');
+
                 const svgData = new XMLSerializer().serializeToString(svg);
                 const img = new Image();
-                const svgBlob = new Blob([svgData], {type: "image/svg+xml;charset=utf-8"});
-                const url = URL.createObjectURL(svgBlob);
-                
-                img.onload = async () => {
-                    ctx.fillStyle = 'white';
-                    ctx.fillRect(0, 0, canvas.width, canvas.height);
-                    ctx.drawImage(img, padding, padding);
-                    URL.revokeObjectURL(url);
-                    
-                    // Convert canvas to blob
-                    canvas.toBlob(async (blob) => {
-                        if (blob) {
-                            // Copy to clipboard
-                            await navigator.clipboard.write([
-                                new ClipboardItem({ 'image/png': blob })
-                            ]);
-                            showNotification(translations[currentLang].notifications.imageCopied, 'success');
-                        } else {
-                            throw new Error('Failed to create blob');
-                        }
-                    }, 'image/png');
-                };
-                
-                img.onerror = () => {
-                    URL.revokeObjectURL(url);
-                    showNotification(translations[currentLang].notifications.error + ': ' + 'فشل في تحويل الباركود إلى صورة', 'error');
-                };
-                
-                img.src = url;
-            } catch (err) {
-                console.error('Error copying barcode image to clipboard:', err);
-                showNotification(translations[currentLang].notifications.error + ': ' + 'فشل في نسخ الصورة', 'error');
+                const blob = new Blob([svgData], {type: 'image/svg+xml;charset=utf-8'});
+                const url = URL.createObjectURL(blob);
+
+                await new Promise(resolve => {
+                    img.onload = () => {
+                        ctx.fillStyle = '#fff';
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                        ctx.drawImage(img, padding, padding);
+                        URL.revokeObjectURL(url);
+                        resolve();
+                    };
+                    img.src = url;
+                });
+
+                const imageBlob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+                await navigator.clipboard.write([new ClipboardItem({'image/png': imageBlob})]);
+                showNotification('Image copied to clipboard!', 'success');
+            } catch (e) {
+                showNotification('Copy failed. Try downloading instead.', 'error');
             }
         });
 
-        // Initialize with sample data
+        // WhatsApp Barcode
+        document.getElementById('whatsappBtnBarcode').addEventListener('click', () => {
+            const number = document.getElementById('whatsappNumberBarcode').value.trim();
+            if (!number) return showNotification('Please enter a WhatsApp number', 'warning');
+            window.open(`https://wa.me/${number.replace(/\D/g, '')}`, '_blank');
+        });
+
+        // Initialize
         updateQrCode();
         updateBarcode();
-        
-        // Prevent form submission on enter key
-        document.querySelectorAll('input, select').forEach(element => {
-            element.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                }
-            });
-        });
-        
-        // Handle window resize for better responsiveness
-        let resizeTimer;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(() => {
-                if (document.getElementById('qr').classList.contains('active')) {
-                    updateQrCode();
-                } else if (document.getElementById('barcode').classList.contains('active')) {
-                    updateBarcode();
-                }
-            }, 250);
+        updateDirection();
+
+        // Prevent Enter submitting
+        document.querySelectorAll('input, select').forEach(el => {
+            el.addEventListener('keydown', e => e.key === 'Enter' ? e.preventDefault() : null);
         });
     </script>
 </body>
 </html>
-
