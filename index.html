@@ -915,7 +915,7 @@
         document.getElementById('whatsappBtnQr').addEventListener('click', () => {
             const number = document.getElementById('whatsappNumberQr').value.trim();
             if (!number) return showNotification('Please enter a WhatsApp number', 'warning');
-            window.open(`https://wa.me/${number.replace(/\D/g, '')}`, '_blank');
+            window.open(`https://wa.me/+2${number.replace(/\D/g, '')}`, '_blank');
         });
 
         // Barcode
@@ -1015,7 +1015,7 @@
         document.getElementById('whatsappBtnBarcode').addEventListener('click', () => {
             const number = document.getElementById('whatsappNumberBarcode').value.trim();
             if (!number) return showNotification('Please enter a WhatsApp number', 'warning');
-            window.open(`https://wa.me/${number.replace(/\D/g, '')}`, '_blank');
+            window.open(`https://wa.me/+2${number.replace(/\D/g, '')}`, '_blank');
         });
 
         // Initialize
